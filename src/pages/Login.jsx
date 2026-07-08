@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import bgImage from "../assets/login-bg.jpg";
+import logo from "../assets/onedao-logo.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -48,6 +49,8 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <div className="dots dots-top"></div>
+<div className="dots dots-bottom"></div>
       <div className="login-card">
         <div
           className="login-left"
@@ -56,59 +59,94 @@ const Login = () => {
 
         <div className="login-right">
           <div className="login-content">
-            <h1>Log In to Admin Panel</h1>
 
-            <p>Enter your email id and password below</p>
+  <div className="logo">
+  <img src={logo} alt="OneDAO Logo" className="logo-img" />
+  <span className="logo-dark">OneDAO</span>
+</div>
 
-            <form onSubmit={handleLogin}>
-              <div className="form-group">
-                <label>EMAIL ID</label>
+  <h2>Login to Admin Panel</h2>
+  <p className="subtitle">Enter your Registered Email and Password</p>
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email id"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
+  <form onSubmit={handleLogin}>
 
-              <div className="form-group">
-                <label>PASSWORD</label>
+    <div className="form-group">
+  <div className="label-row">
+    <label>Email ID</label>
 
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </div>
+    {error && (
+      <span className="field-error">
+        Invalid Email
+      </span>
+    )}
+  </div>
 
-              {error && (
-                <p
-                  style={{
-                    color: "red",
-                    marginBottom: "15px",
-                  }}
-                >
-                  {error}
-                </p>
-              )}
+  <input
+    type="email"
+    name="email"
+    placeholder="email@domain.com"
+    value={formData.email}
+    onChange={handleChange}
+    className={error ? "input-error" : ""}
+  />
+</div>
 
-              <button type="submit">
-                Log In
-              </button>
-            </form>
+    <div className="form-group">
+  <div className="label-row">
+    <label>Password</label>
 
-            <div className="register">
-              <span>Don't have an account?</span>
+    {error && (
+      <span className="field-error">
+        Invalid Password
+      </span>
+    )}
+  </div>
 
-              <Link to="/register"> Register</Link>
-            </div>
-          </div>
-        </div>
-      </div>
+  <input
+    type="password"
+    name="password"
+    placeholder="••••••••••••"
+    value={formData.password}
+    onChange={handleChange}
+    className={error ? "input-error" : ""}
+  />
+</div>
+
+    <div className="login-options">
+      <Link to="/forgot-password" className="forgot">
+        Forgot password?
+      </Link>
+    </div>
+
+    <button className="login-btn" type="submit">
+      Login
+    </button>
+
+    <div className="divider">
+    <span>OR</span>
+  </div>
+
+    <div className="google-login">
+  <button type="button" className="google-btn">
+    <img
+      src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+      alt="Google"
+    />
+    Continue with Google
+  </button>
+
+  
+</div>
+
+  </form>
+
+  <div className="register">
+    Don't have an account?
+    <Link to="/register"> Register</Link>
+  </div>
+  </div>
+</div>
+</div>
     </div>
   );
 };

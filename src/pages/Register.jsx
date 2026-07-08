@@ -38,25 +38,31 @@ const Register = () => {
     }
 
     // Email Validation
-    const emailPattern =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Email Validation
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailPattern.test(formData.email)) {
-      setError("Enter a valid Email.");
-      return;
-    }
+if (!emailPattern.test(formData.email)) {
+  setError("Enter a valid email.");
+  return;
+}
 
-    // Password Length
-    if (formData.password.length < 8) {
-      setError("Password must contain at least 8 characters.");
-      return;
-    }
+// Password Validation
+const passwordPattern =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?])[A-Za-z\d@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
 
-    // Password Match
-    if (formData.password !== formData.confirmPassword) {
-      setError("Password and Confirm Password do not match.");
-      return;
-    }
+if (!passwordPattern.test(formData.password)) {
+  alert(
+    "Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, one number,one special character."
+  );
+  return;
+}
+
+// Confirm Password Validation
+if (formData.password !== formData.confirmPassword) {
+  setError("Password and Confirm Password do not match.");
+  return;
+}
+
 
     try {
   const otp = Math.floor(100000 + Math.random() * 900000);
