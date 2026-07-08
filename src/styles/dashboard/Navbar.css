@@ -1,0 +1,106 @@
+.navbar{
+    height:90px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 35px;
+    border-bottom:1px solid #ececec;
+}
+
+.navbar-left{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.menu-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    background:transparent;
+    font-size:24px;
+    cursor:pointer;
+    color:#2d3d63;
+}
+
+.navbar-left h2{
+    font-size:24px;
+    color:#2f3b5e;
+    font-weight:400;
+}
+
+.navbar-left h2 span{
+    font-weight:600;
+}
+
+.navbar-left p{
+    color:#8a92ab;
+    font-size:16px;
+}
+
+.navbar-left p span{
+    color:#4c63ff;
+    font-weight:500;
+}
+
+.navbar-right{
+    display:flex;
+    align-items:center;
+}
+
+.logout-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    background:transparent;
+    font-size:28px;
+    color:#2f3b5e;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    color:#4c63ff;
+    transform:scale(1.1);
+}
+
+@media (max-width:992px){
+
+.navbar{
+    padding:0 20px;
+}
+
+.navbar-left{
+    gap:15px;
+}
+
+.navbar-left h2{
+    font-size:20px;
+}
+
+.navbar-left p{
+    display:none;
+}
+
+}
+
+@media (max-width:768px){
+
+.navbar{
+    height:75px;
+}
+
+.navbar-left h2{
+    font-size:18px;
+}
+
+.menu-btn{
+    font-size:20px;
+}
+
+.logout-btn{
+    font-size:24px;
+}
+
+}

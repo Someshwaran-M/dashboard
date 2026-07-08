@@ -1,0 +1,67 @@
+.statistics{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.statistics-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.statistics-header h2{
+    font-size:36px;
+    color:#2f3b5e;
+}
+
+.month{
+    font-size:20px;
+    color:#52607d;
+}
+
+.statistics-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.statistics-top h3{
+    color:#2f3b5e;
+    font-size:24px;
+}
+
+.legend{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:18px;
+    color:#56637d;
+}
+
+.blue-dot,
+.green-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+}
+
+.blue-dot{
+    background:#3d63ff;
+}
+
+.green-dot{
+    background:#00d084;
+}
+
+.chart{
+    width:100%;
+    height:350px;
+}
+
+.recharts-wrapper{
+    font-size:14px;
+}

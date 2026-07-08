@@ -1,0 +1,94 @@
+.top-drivers{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.driver-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.driver-header h2{
+    font-size:28px;
+    color:#2f3b5e;
+}
+
+.driver-header button{
+    border:none;
+    background:none;
+    font-size:20px;
+    cursor:pointer;
+    color:#777;
+}
+
+.driver-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #ececec;
+}
+
+.driver-card:last-of-type{
+    border-bottom:none;
+}
+
+.driver-card img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.driver-info{
+    flex:1;
+    margin-left:15px;
+}
+
+.driver-info h3{
+    font-size:18px;
+    color:#2f3b5e;
+    margin-bottom:5px;
+}
+
+.driver-info p{
+    color:#8b95a9;
+    font-size:14px;
+}
+
+.driver-income{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.driver-income h4{
+    color:#4d6fff;
+    font-size:18px;
+}
+
+.driver-income svg{
+    color:#4d6fff;
+    cursor:pointer;
+}
+
+.view-all{
+    width:100%;
+    margin-top:25px;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#4d6fff;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.view-all:hover{
+    background:#3455ff;
+}

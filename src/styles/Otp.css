@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2ff,#f8fafc,#e0f2fe);
+    overflow-x:hidden;
+}
+
+/* ---------------------- */
+/* Background Animation */
+/* ---------------------- */
+
+.otp-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+.otp-page::before,
+.otp-page::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    animation:float 8s ease-in-out infinite;
+}
+
+.otp-page::before{
+    width:320px;
+    height:320px;
+    background:#6c63ff55;
+    top:-100px;
+    left:-100px;
+}
+
+.otp-page::after{
+    width:350px;
+    height:350px;
+    background:#00d4ff55;
+    bottom:-120px;
+    right:-120px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(30px);
+    }
+}
+
+/* ---------------------- */
+/* Card */
+/* ---------------------- */
+
+.otp-card{
+    width:1150px;
+    height:720px;
+    display:flex;
+    overflow:hidden;
+    border-radius:35px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.5);
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.15),
+    0 0 0 1px rgba(255,255,255,.4);
+    animation:cardShow .8s ease;
+}
+
+@keyframes cardShow{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ---------------------- */
+/* Left Image */
+/* ---------------------- */
+
+.otp-left{
+    width:52%;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.otp-left::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+    rgba(25,25,45,.25),
+    rgba(25,25,45,.45));
+}
+
+.otp-left::after{
+    content:"OneDAO";
+    position:absolute;
+    bottom:45px;
+    left:45px;
+    font-size:42px;
+    color:#fff;
+    font-weight:700;
+    letter-spacing:2px;
+    text-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+/* ---------------------- */
+/* Right */
+/* ---------------------- */
+
+.otp-right{
+    width:48%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+}
+
+.otp-content{
+    width:100%;
+    text-align:center;
+}
+
+/* ---------------------- */
+/* Heading */
+/* ---------------------- */
+
+.otp-content h1{
+    font-size:46px;
+    font-weight:700;
+    color:#1d2433;
+    margin-bottom:12px;
+}
+
+.otp-content p{
+    color:#7c8597;
+    font-size:17px;
+    line-height:30px;
+    margin-bottom:45px;
+}
+
+/* ---------------------- */
+/* OTP */
+/* ---------------------- */
+
+.otp-boxes{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:45px;
+}
+
+.otp-boxes input{
+
+    width:62px;
+    height:62px;
+
+    border:none;
+    border-radius:18px;
+
+    font-size:26px;
+    font-weight:600;
+
+    text-align:center;
+
+    background:#ffffff;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+
+    transition:.35s;
+}
+
+.otp-boxes input:hover{
+
+    transform:translateY(-4px);
+}
+
+.otp-boxes input:focus{
+
+    outline:none;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 12px 30px rgba(108,99,255,.35);
+
+    border:2px solid #6c63ff;
+}
+
+/* ---------------------- */
+/* Button */
+/* ---------------------- */
+
+button{
+
+    width:100%;
+    height:60px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#6c63ff,#5b7cff,#00c6ff);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    0 12px 25px rgba(92,124,255,.35);
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 18px 35px rgba(92,124,255,.45);
+
+    background:linear-gradient(
+    135deg,
+    #5b52ff,
+    #4f73ff,
+    #00bfff);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+/* ---------------------- */
+/* Success */
+/* ---------------------- */
+
+.success-message{
+
+    padding:15px;
+
+    margin-bottom:25px;
+
+    border-radius:15px;
+
+    color:#0d5f39;
+
+    background:#d7ffe7;
+
+    border:1px solid #76d79b;
+
+    font-weight:600;
+
+    box-shadow:0 8px 18px rgba(34,197,94,.18);
+
+    animation:slideDown .5s ease;
+}
+
+/* ---------------------- */
+/* Error */
+/* ---------------------- */
+
+.error{
+
+    padding:15px;
+
+    margin-bottom:25px;
+
+    border-radius:15px;
+
+    background:#ffe7e7;
+
+    color:#d32f2f;
+
+    border:1px solid #ff8b8b;
+
+    font-weight:600;
+
+    animation:shake .35s;
+}
+
+/* ---------------------- */
+/* Animations */
+/* ---------------------- */
+
+@keyframes slideDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-15px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+@keyframes shake{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-6px);
+    }
+
+    50%{
+        transform:translateX(6px);
+    }
+
+    75%{
+        transform:translateX(-4px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+/* ---------------------- */
+/* Responsive */
+/* ---------------------- */
+
+@media(max-width:1000px){
+
+    .otp-card{
+
+        width:95%;
+
+        height:auto;
+
+        flex-direction:column;
+    }
+
+    .otp-left{
+
+        width:100%;
+
+        height:260px;
+    }
+
+    .otp-left::after{
+
+        font-size:34px;
+    }
+
+    .otp-right{
+
+        width:100%;
+
+        padding:45px 30px;
+    }
+
+    .otp-content h1{
+
+        font-size:34px;
+    }
+
+    .otp-content p{
+
+        font-size:15px;
+    }
+
+    .otp-boxes{
+
+        gap:12px;
+    }
+
+    .otp-boxes input{
+
+        width:50px;
+        height:50px;
+        font-size:22px;
+    }
+
+    button{
+
+        height:55px;
+        font-size:18px;
+    }
+}
+
+@media(max-width:550px){
+
+    .otp-boxes{
+
+        gap:8px;
+    }
+
+    .otp-boxes input{
+
+        width:44px;
+        height:44px;
+        font-size:18px;
+    }
+
+    .otp-content h1{
+
+        font-size:28px;
+    }
+
+    .otp-content p{
+
+        font-size:14px;
+        line-height:24px;
+    }
+}

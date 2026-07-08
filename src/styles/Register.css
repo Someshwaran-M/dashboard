@@ -1,0 +1,511 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* ================= PAGE ================= */
+
+.register-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(135deg,#eef2ff,#ffffff,#f8faff);
+}
+
+/* Background Glow */
+
+.register-page::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:#6C63FF;
+    filter:blur(140px);
+    opacity:.22;
+    left:-150px;
+    top:-120px;
+    animation:moveLeft 10s infinite alternate;
+}
+
+.register-page::after{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:#00C6FF;
+    filter:blur(140px);
+    opacity:.18;
+    right:-120px;
+    bottom:-120px;
+    animation:moveRight 10s infinite alternate;
+}
+
+@keyframes moveLeft{
+    to{
+        transform:translate(90px,70px);
+    }
+}
+
+@keyframes moveRight{
+    to{
+        transform:translate(-80px,-70px);
+    }
+}
+
+/* ================= CARD ================= */
+
+.register-card{
+
+    width:1120px;
+    height:720px;
+
+    display:flex;
+
+    overflow:hidden;
+
+    border-radius:35px;
+
+    position:relative;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.15);
+
+    animation:floatCard 5s ease-in-out infinite;
+
+    transition:.5s;
+}
+
+.register-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 35px 90px rgba(0,0,0,.18);
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+/* ================= LEFT ================= */
+
+.register-left{
+
+    width:52%;
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+    transition:1s;
+}
+
+.register-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    to top,
+    rgba(0,0,0,.4),
+    rgba(0,0,0,.05)
+    );
+
+}
+
+.register-card:hover .register-left{
+
+    transform:scale(1.08);
+
+}
+
+/* ================= RIGHT ================= */
+
+.register-right{
+
+    width:48%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:slideRight .8s ease;
+
+}
+
+.register-content{
+
+    width:82%;
+
+}
+
+/* ================= TITLE ================= */
+
+.register-content h1{
+
+    font-size:48px;
+
+    line-height:55px;
+
+    margin-bottom:15px;
+
+    background:linear-gradient(
+    90deg,
+    #111827,
+    #5B5BF9,
+    #00BFFF
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    animation:titleColor 5s linear infinite;
+
+}
+
+@keyframes titleColor{
+
+100%{
+
+filter:hue-rotate(360deg);
+
+}
+
+}
+
+.register-content p{
+
+    color:#9098b0;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+/* ================= FORM ================= */
+
+.form-group{
+
+    margin-bottom:22px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:#1f2937;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    height:58px;
+
+    padding:0 20px;
+
+    border-radius:15px;
+
+    border:2px solid #e5e7eb;
+
+    background:#fff;
+
+    font-size:16px;
+
+    transition:.35s;
+
+}
+
+.form-group input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.form-group input:hover{
+
+    border-color:#5B5BF9;
+
+    box-shadow:
+    0 8px 20px rgba(91,91,249,.12);
+
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:#5B5BF9;
+
+    box-shadow:
+    0 0 0 5px rgba(91,91,249,.15);
+
+    transform:translateY(-2px);
+
+}
+
+/* ================= BUTTON ================= */
+
+button{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:15px;
+
+    margin-top:25px;
+
+    color:#fff;
+
+    font-size:19px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+    background:linear-gradient(
+    90deg,
+    #111827,
+    #5B5BF9,
+    #00BFFF
+    );
+
+    background-size:220%;
+
+}
+
+button:hover{
+
+    background-position:right center;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(91,91,249,.35);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ================= LOGIN ================= */
+
+.bottom-text{
+
+    text-align:center;
+
+    margin-top:35px;
+
+    color:#9CA3AF;
+
+    font-size:17px;
+
+}
+
+.bottom-text a{
+
+    color:#111827;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    position:relative;
+
+}
+
+.bottom-text a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-2px;
+
+    width:0;
+
+    height:2px;
+
+    background:#5B5BF9;
+
+    transition:.3s;
+
+}
+
+.bottom-text a:hover{
+
+    color:#5B5BF9;
+
+}
+
+.bottom-text a:hover::after{
+
+    width:100%;
+
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes slideRight{
+
+from{
+
+opacity:0;
+
+transform:translateX(80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+.register-card{
+
+flex-direction:column;
+
+width:95%;
+
+height:auto;
+
+}
+
+.register-left{
+
+width:100%;
+
+height:260px;
+
+}
+
+.register-right{
+
+width:100%;
+
+padding:40px 0;
+
+}
+
+.register-content{
+
+width:90%;
+
+}
+
+.register-content h1{
+
+font-size:35px;
+
+line-height:42px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.register-page{
+
+padding:20px;
+
+}
+
+.register-card{
+
+border-radius:25px;
+
+}
+
+.register-content h1{
+
+font-size:30px;
+
+}
+
+.form-group input{
+
+height:52px;
+
+}
+
+button{
+
+height:55px;
+
+font-size:18px;
+
+}
+
+.bottom-text{
+
+font-size:15px;
+
+}
+
+}
