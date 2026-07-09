@@ -1,8 +1,8 @@
 import React from "react";
 import {
   ResponsiveContainer,
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   CartesianGrid,
   XAxis,
   YAxis,
@@ -12,18 +12,18 @@ import {
 import "../styles/dashboard/Statistics.css";
 
 const data = [
-  { month: "Jan", grade: 20, exams: 20 },
-  { month: "Feb", grade: 25, exams: 35 },
-  { month: "Mar", grade: 35, exams: 50 },
-  { month: "Apr", grade: 50, exams: 60 },
-  { month: "May", grade: 70, exams: 55 },
-  { month: "Jun", grade: 75, exams: 30 },
-  { month: "Jul", grade: 65, exams: 45 },
-  { month: "Aug", grade: 40, exams: 85 },
-  { month: "Sep", grade: 30, exams: 90 },
-  { month: "Oct", grade: 40, exams: 80 },
-  { month: "Nov", grade: 60, exams: 85 },
-  { month: "Dec", grade: 85, exams: 100 },
+  { month: "Jan", value: 120 },
+  { month: "Feb", value: 180 },
+  { month: "Mar", value: 260 },
+  { month: "Apr", value: 320 },
+  { month: "May", value: 420 },
+  { month: "Jun", value: 390 },
+  { month: "Jul", value: 520 },
+  { month: "Aug", value: 610 },
+  { month: "Sep", value: 560 },
+  { month: "Oct", value: 680 },
+  { month: "Nov", value: 740 },
+  { month: "Dec", value: 820 },
 ];
 
 const Statistics = () => {
@@ -31,65 +31,48 @@ const Statistics = () => {
     <div className="statistics">
 
       <div className="statistics-header">
-
-        <h2>Statistic</h2>
-
-        <div className="month">
-          ❮ <span>Aug 2021</span> ❯
+        <div>
+          <h2>Statistics Overview</h2>
+          <p>Business performance this year</p>
         </div>
 
-      </div>
-
-      <div className="statistics-top">
-
-        <h3>Progress score</h3>
-
-        <div className="legend">
-
-          <span className="blue-dot"></span>
-          Average grade
-
-          <span className="green-dot"></span>
-          Exams
-
+        <div className="filter-buttons">
+          <button className="active">Month</button>
+          <button>Week</button>
+          <button>Year</button>
         </div>
-
       </div>
 
       <div className="chart">
 
         <ResponsiveContainer width="100%" height={350}>
 
-          <LineChart data={data}>
+          <AreaChart data={data}>
 
-            <CartesianGrid
-              stroke="#ececec"
-              vertical={false}
-            />
+            <defs>
+              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.4}/>
+                <stop offset="95%" stopColor="#4F46E5" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
 
-            <XAxis dataKey="month" />
+            <CartesianGrid stroke="#edf2f7" vertical={false}/>
 
-            <YAxis hide />
+            <XAxis dataKey="month"/>
 
-            <Tooltip />
+            <YAxis hide/>
 
-            <Line
+            <Tooltip/>
+
+            <Area
               type="monotone"
-              dataKey="grade"
-              stroke="#3d63ff"
+              dataKey="value"
+              stroke="#4F46E5"
               strokeWidth={3}
-              dot={false}
+              fill="url(#colorValue)"
             />
 
-            <Line
-              type="monotone"
-              dataKey="exams"
-              stroke="#00d084"
-              strokeWidth={3}
-              dot={false}
-            />
-
-          </LineChart>
+          </AreaChart>
 
         </ResponsiveContainer>
 

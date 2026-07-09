@@ -11,18 +11,26 @@ import {
   FaCodeBranch,
   FaUserShield,
   FaSlidersH,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
 import "../styles/dashboard/Sidebar.css";
+import logo from "../assets/onedao-logo.png";
 
 const Sidebar = () => {
   return (
     <aside className="sidebar">
 
+      {/* Logo */}
+
+      <div className="logo">
+        <img src={logo} alt="OneDAO Logo" className="logo-img" />
+        <span className="logo-dark">OneDAO</span>
+      </div>
+
       {/* Profile */}
 
       <div className="profile">
-
         <img
           src="https://i.pravatar.cc/120?img=12"
           alt="profile"
@@ -30,12 +38,9 @@ const Sidebar = () => {
 
         <div>
           <h3>Maharram</h3>
-          <p>+998 (99) 436-46-15</p>
+          <span>Admin</span>
         </div>
-
       </div>
-
-      <span className="menu-title">MAIN MENU</span>
 
       <ul className="menu">
 
@@ -71,12 +76,12 @@ const Sidebar = () => {
 
         <li>
           <FaMapMarkedAlt />
-          Live map
+          Live Map
         </li>
 
         <li>
           <FaCar />
-          Car classes
+          Car Classes
         </li>
 
         <li>
@@ -86,7 +91,7 @@ const Sidebar = () => {
 
         <li>
           <FaUserShield />
-          Moderators
+          Reports
         </li>
 
         <li>
@@ -95,6 +100,11 @@ const Sidebar = () => {
         </li>
 
       </ul>
+
+      <button className="logout-btn">
+        <FaSignOutAlt />
+        Logout
+      </button>
 
     </aside>
   );

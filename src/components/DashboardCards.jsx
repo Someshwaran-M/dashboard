@@ -1,7 +1,9 @@
 import React from "react";
 import {
-  FaFolder,
-  FaArrowRight,
+  FaShoppingBag,
+  FaDollarSign,
+  FaChartLine,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 import "../styles/dashboard/DashboardCards.css";
@@ -9,27 +11,35 @@ import "../styles/dashboard/DashboardCards.css";
 const cards = [
   {
     title: "Total Orders",
-    color: "#dbe5ff",
-    iconColor: "#4d6fff",
-    textColor: "#4d6fff",
+    value: "435",
+    change: "+12.5%",
+    icon: <FaShoppingBag />,
+    color: "#4F46E5",
+    bg: "#EEF2FF",
   },
   {
-    title: "Total Earnings",
-    color: "#ffdfe2",
-    iconColor: "#ff4d5a",
-    textColor: "#ff4d5a",
+    title: "Revenue",
+    value: "$16,240",
+    change: "+8.3%",
+    icon: <FaDollarSign />,
+    color: "#16A34A",
+    bg: "#ECFDF5",
   },
   {
     title: "Profit",
-    color: "#ffe9d1",
-    iconColor: "#ff9d2f",
-    textColor: "#ff9d2f",
+    value: "$8,530",
+    change: "+4.8%",
+    icon: <FaChartLine />,
+    color: "#F59E0B",
+    bg: "#FFF7ED",
   },
   {
     title: "Completed",
-    color: "#e5ffe8",
-    iconColor: "#31c95b",
-    textColor: "#31c95b",
+    value: "326",
+    change: "+18.2%",
+    icon: <FaCheckCircle />,
+    color: "#EF4444",
+    bg: "#FEF2F2",
   },
 ];
 
@@ -37,28 +47,31 @@ const DashboardCards = () => {
   return (
     <div className="dashboard-cards">
       {cards.map((card, index) => (
-        <div
-          className="dashboard-card"
-          key={index}
-          style={{ background: card.color }}
-        >
+        <div className="stat-card" key={index}>
+
           <div
-            className="card-icon"
-            style={{ color: card.iconColor }}
+            className="stat-icon"
+            style={{
+              background: card.bg,
+              color: card.color,
+            }}
           >
-            <FaFolder />
+            {card.icon}
           </div>
 
-          <div className="card-info">
-            <h4 style={{ color: card.textColor }}>
-              {card.title}
-            </h4>
+          <div className="stat-content">
+            <span>{card.title}</span>
+            <h2>{card.value}</h2>
+
+            <small
+              style={{
+                color: card.color,
+              }}
+            >
+              {card.change} this month
+            </small>
           </div>
 
-          <FaArrowRight
-            className="arrow"
-            style={{ color: card.textColor }}
-          />
         </div>
       ))}
     </div>

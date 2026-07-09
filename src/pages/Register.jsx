@@ -175,8 +175,8 @@ return (
             <span className="logo-dark">OneDAO</span>
           </div>
 
-          <h1>Register to Admin Panel</h1>
-          <p>Enter your Email ID and Password below</p>
+          <h2>Register to Admin Panel</h2>
+          
 
           <form onSubmit={handleRegister}>
 

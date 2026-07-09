@@ -119,6 +119,7 @@ body{
 
 .register-content{
     width:78%;
+
 }
 /* ================= TITLE ================= */
 .error {
@@ -132,12 +133,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.register-content h1{
-    font-size:34px;
+.register-content h2{
+    font-size:33px;
     color:#181818;
-    margin-bottom:5px;
-    background:none;
-    -webkit-text-fill-color:initial;
+    margin-bottom:20px;
 }
 
 .register-content p{

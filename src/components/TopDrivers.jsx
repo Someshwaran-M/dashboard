@@ -12,6 +12,7 @@ const drivers = [
     name: "Guy Hawkins",
     rides: 128,
     income: "$12,540",
+    progress: 92,
     image: "https://i.pravatar.cc/80?img=11",
   },
   {
@@ -19,6 +20,7 @@ const drivers = [
     name: "Jane Cooper",
     rides: 112,
     income: "$11,200",
+    progress: 80,
     image: "https://i.pravatar.cc/80?img=32",
   },
   {
@@ -26,6 +28,7 @@ const drivers = [
     name: "Robert Fox",
     rides: 98,
     income: "$9,850",
+    progress: 72,
     image: "https://i.pravatar.cc/80?img=15",
   },
 ];
@@ -51,21 +54,31 @@ const TopDrivers = () => {
           />
 
           <div className="driver-info">
-            <h3>{driver.name}</h3>
-            <p>{driver.rides} Orders</p>
-          </div>
 
-          <div className="driver-income">
-            <h4>{driver.income}</h4>
+            <div className="driver-top">
+              <h3>{driver.name}</h3>
+              <h4>{driver.income}</h4>
+            </div>
 
-            <FaArrowRight />
+            <p>{driver.rides} Orders Completed</p>
+
+            <div className="progress">
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${driver.progress}%`,
+                }}
+              ></div>
+            </div>
+
           </div>
 
         </div>
       ))}
 
       <button className="view-all">
-        View All Drivers
+        View All
+        <FaArrowRight />
       </button>
 
     </div>

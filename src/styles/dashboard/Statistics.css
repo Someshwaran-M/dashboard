@@ -1,67 +1,114 @@
 .statistics{
     background:#fff;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    border-radius:24px;
+    padding:28px;
+    border:1px solid #edf2f7;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+    transition:.35s;
 }
+
+.statistics:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 45px rgba(79,70,229,.12);
+}
+
+/* Header */
 
 .statistics-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .statistics-header h2{
-    font-size:36px;
-    color:#2f3b5e;
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:4px;
 }
 
-.month{
-    font-size:20px;
-    color:#52607d;
+.statistics-header p{
+    color:#6b7280;
+    font-size:14px;
 }
 
-.statistics-top{
+/* Filter Buttons */
+
+.filter-buttons{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
+    gap:10px;
 }
 
-.statistics-top h3{
-    color:#2f3b5e;
-    font-size:24px;
+.filter-buttons button{
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    background:#f3f4f6;
+    color:#374151;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.legend{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-size:18px;
-    color:#56637d;
+.filter-buttons button.active{
+    background:#4f46e5;
+    color:#fff;
 }
 
-.blue-dot,
-.green-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
+.filter-buttons button:hover{
+    background:#6366f1;
+    color:#fff;
 }
 
-.blue-dot{
-    background:#3d63ff;
-}
-
-.green-dot{
-    background:#00d084;
-}
+/* Chart */
 
 .chart{
     width:100%;
-    height:350px;
+    height:360px;
 }
 
-.recharts-wrapper{
-    font-size:14px;
+/* Recharts */
+
+.recharts-cartesian-grid-horizontal line{
+    stroke:#edf2f7;
+}
+
+.recharts-tooltip-wrapper{
+    border-radius:12px;
+}
+
+.recharts-default-tooltip{
+    border:none !important;
+    border-radius:12px !important;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.statistics{
+    padding:20px;
+}
+
+.statistics-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.filter-buttons{
+    width:100%;
+}
+
+.filter-buttons button{
+    flex:1;
+}
+
+.chart{
+    height:300px;
+}
+
 }
