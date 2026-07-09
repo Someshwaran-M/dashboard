@@ -1,23 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-}
-
-html,
-body,
-#root{
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
-    background:#f5f7fb;
-    scroll-behavior:smooth;
-}
+/* Resets and global root styling are handled in index.css and App.css */
 .dashboard{
     display:flex;
     width:100%;
@@ -104,9 +87,9 @@ body,
    Inputs
 ========================== */
 
-input,
-textarea,
-select{
+.dashboard input,
+.dashboard textarea,
+.dashboard select{
     width:100%;
     border:1px solid #e5e7eb;
     border-radius:14px;
@@ -117,9 +100,9 @@ select{
     background:#fff;
 }
 
-input:focus,
-textarea:focus,
-select:focus{
+.dashboard input:focus,
+.dashboard textarea:focus,
+.dashboard select:focus{
     border-color:#5b5ce9;
     box-shadow:0 0 0 4px rgba(91,92,233,.12);
 }
@@ -128,12 +111,12 @@ select:focus{
    Table
 ========================== */
 
-table{
+.dashboard table{
     width:100%;
     border-collapse:collapse;
 }
 
-th{
+.dashboard th{
     text-align:left;
     padding:16px;
     background:#f8fafc;
@@ -141,16 +124,16 @@ th{
     font-weight:600;
 }
 
-td{
+.dashboard td{
     padding:16px;
     border-bottom:1px solid #edf2f7;
 }
 
-tbody tr{
+.dashboard tbody tr{
     transition:.25s;
 }
 
-tbody tr:hover{
+.dashboard tbody tr:hover{
     background:#f7f9ff;
 }
 
@@ -158,13 +141,13 @@ tbody tr:hover{
    Links
 ========================== */
 
-a{
+.dashboard a{
     text-decoration:none;
     color:inherit;
     transition:.3s;
 }
 
-a:hover{
+.dashboard a:hover{
     color:#5b5ce9;
 }
 

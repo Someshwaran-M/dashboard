@@ -1,13 +1,4 @@
-    *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-}
-body{
-    margin:0;
-    background:#fff;
-}
+/* Scoped styles */
 
 .register-page{
     width:100%;
@@ -45,20 +36,20 @@ body{
     z-index:0;
 }
 
-.logo{
+.register-page .logo{
     display:flex;
     align-items:center;
     gap:12px;
     margin-bottom:25px;
 }
 
-.logo-img{
+.register-page .logo-img{
     width:60px;
     height:auto;
     object-fit:contain;
 }
 
-.logo-dark{
+.register-page .logo-dark{
     font-size:30px;
     font-weight:400;
     color:#111;

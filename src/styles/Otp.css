@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    margin:0;
-    background:#fff;
-}
+/* Scoped styles */
 
 .otp-page{
     width:100%;
@@ -87,20 +77,20 @@ body{
     }
 }
 
-.logo{
+.otp-page .logo{
     display:flex;
     align-items:center;
     gap:12px;
     margin-bottom:25px;
 }
 
-.logo-img{
+.otp-page .logo-img{
     width:60px;
     height:auto;
     object-fit:contain;
 }
 
-.logo-dark{
+.otp-page .logo-dark{
     font-size:30px;
     font-weight:400;
     color:#111;
@@ -382,15 +372,15 @@ body{
         text-align:center;
     }
 
-    .logo{
+    .otp-page .logo{
         justify-content:center;
         margin-bottom:20px;
     }
 
-    .logo-img{
+    .otp-page .logo-img{
         width:55px;
     }
-.logo-dark{
+.otp-page .logo-dark{
     font-size:32px;
     font-weight:500;
     color:#111827;
@@ -462,16 +452,16 @@ font-weight:700;
         text-align:center;
     }
 
-    .logo{
+    .otp-page .logo{
         justify-content:center;
         margin-bottom:18px;
     }
 
-    .logo-img{
+    .otp-page .logo-img{
         width:48px;
     }
 
-    .logo-dark{
+    .otp-page .logo-dark{
         font-size:24px;
     }
 
@@ -536,11 +526,11 @@ font-weight:700;
         height:180px;
     }
 
-    .logo-img{
+    .otp-page .logo-img{
         width:42px;
     }
 
-    .logo-dark{
+    .otp-page .logo-dark{
         font-size:20px;
     }
 
