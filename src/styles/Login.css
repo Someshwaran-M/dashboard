@@ -16,15 +16,14 @@ body{
 
 .login-page{
     width:100%;
-    min-height:90vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:35px;
+    padding:30px;
     position:relative;
     overflow:hidden;
     background:#f8f8ff;
-    margin-left: 10px;
 }
 
 /* Top Left Purple Circle */
@@ -76,16 +75,18 @@ body{
 /* ---------------------- CARD ---------------------- */
 
 .login-card{
-    width:1180px;
-    max-width:100%;
-    height:740px;
+    width:min(1180px,100%);
+    min-height:740px;
+    height:auto;
     background:#fff;
     border-radius:28px;
     display:flex;
+    align-items:stretch;
     overflow:hidden;
     padding:18px;
     position:relative;
     z-index:10;
+    margin:auto;
 
     box-shadow:
         0 30px 80px rgba(109,91,208,.12),
@@ -95,10 +96,11 @@ body{
 /* ---------------------- LEFT ---------------------- */
 
 .login-left{
-    width:52%;
+    flex:1.1;
     border-radius:22px;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     position:relative;
     overflow:hidden;
 }
@@ -115,16 +117,17 @@ body{
 /* ---------------------- RIGHT ---------------------- */
 
 .login-right{
-    width:48%;
+    flex:0.9;
     display:flex;
     justify-content:center;
     align-items:center;
     background:#fff;
-    padding:10px 10px;
+    padding:20px;
 }
 
 .login-content{
-    width:78%;
+    width:100%;
+    max-width:420px;
 }
 
 /* ---------------------- LOGO ---------------------- */

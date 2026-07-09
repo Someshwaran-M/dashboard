@@ -84,7 +84,7 @@ const Otp = () => {
   <img src={logo} alt="OneDAO Logo" className="logo-img" />
   <span className="logo-dark">OneDAO</span>
 </div>
-            <h1>Email Verification</h1>
+            <h2>Email Verification</h2>
 
             <p>
               Enter the 6-digit OTP sent to your email
@@ -106,10 +106,14 @@ const Otp = () => {
             </div>
 
             {error && (
-              <p style={{ color: "red", marginBottom: "20px" }}>
-                {error}
-              </p>
-            )}
+  <p style={{ marginBottom: "20px", color:"#ef4444",
+    fontsize:"14px",
+    fontweight:"600",
+    
+    }}>
+    {error}
+  </p>
+)}
 
             <button onClick={verifyOTP} className="verify-btn">
               Verify OTP
