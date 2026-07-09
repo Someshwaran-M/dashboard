@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "../styles/Register.css";
 import bgImage from "../assets/login-bg.jpg";
+import logo from "../assets/onedao-logo.png";
 
 const Register = () => {
   const navigate = useNavigate();
   const [success, setSuccess] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,189 +20,268 @@ const Register = () => {
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const { name, value } = e.target;
+
+  const updatedData = {
+    ...formData,
+    [name]: value,
   };
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  setFormData(updatedData);
 
+  // Clear email error while typing
+  if (name === "email") {
     setError("");
+  }
 
-    if (
-      !formData.email ||
-      !formData.password ||
-      !formData.confirmPassword
-    ) {
-      setError("Please fill all fields.");
-      return;
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+
+  // Password validation
+  if (name === "password") {
+    if (value && !passwordPattern.test(value)) {
+      setPasswordError(
+        "Password must be at least 8 characters and contain uppercase, lowercase, number and special character."
+      );
+    } else {
+      setPasswordError("");
     }
 
-    // Email Validation
-    // Email Validation
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Check confirm password if already entered
+    if (
+      updatedData.confirmPassword &&
+      value !== updatedData.confirmPassword
+    ) {
+      setConfirmPasswordError(
+        "Password and Confirm Password do not match."
+      );
+    } else {
+      setConfirmPasswordError("");
+    }
+  }
 
-if (!emailPattern.test(formData.email)) {
-  setError("Enter a valid email.");
-  return;
-}
-
-// Password Validation
-const passwordPattern =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?])[A-Za-z\d@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
-
-if (!passwordPattern.test(formData.password)) {
-  alert(
-    "Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, one number,one special character."
-  );
-  return;
-}
-
-// Confirm Password Validation
-if (formData.password !== formData.confirmPassword) {
-  setError("Password and Confirm Password do not match.");
-  return;
-}
-
-
-    try {
-  const otp = Math.floor(100000 + Math.random() * 900000);
-
-  sessionStorage.setItem("otp", otp);
-
-  const templateParams = {
-  email: formData.email,
-  passcode: otp,
-  time: "15 minutes",
+  // Confirm Password validation
+  if (name === "confirmPassword") {
+    if (value && value !== updatedData.password) {
+      setConfirmPasswordError(
+        "Password and Confirm Password do not match."
+      );
+    } else {
+      setConfirmPasswordError("");
+    }
+  }
 };
 
-  await emailjs.send(
-    "service_hprxsrn",     // Your Service ID
-    "template_w87t1hi",    // Your Template ID
-    templateParams,
-    "9hJ0am5Xfu6p8EFOx"      // Your Public Key
-  );
+  const handleRegister = async (e) => {
+  e.preventDefault();
 
-  localStorage.setItem(
-  "registerData",
-  JSON.stringify({
-    email: formData.email,
-    password: formData.password,
-  })
-);
+  // Clear previous errors
+  setError("");
+  setPasswordError("");
+  setConfirmPasswordError("");
 
-// Show success message
-setSuccess("OTP sent successfully to your email!");
+  // Empty fields validation
+  if (
+    !formData.email ||
+    !formData.password ||
+    !formData.confirmPassword
+  ) {
+    setError("Please fill all fields.");
+    return;
+  }
 
-// Navigate after 2 seconds
-setTimeout(() => {
-  navigate("/otp");
-}, 2000);
+  // Email Validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  if (!emailPattern.test(formData.email)) {
+    setError("Enter a valid email.");
+    return;
+  }
 
-}catch (error) {
-  console.log("EmailJS Error:", error);
-  console.log("Status:", error.status);
-  console.log("Text:", error.text);
+  // Password Validation
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
-  setError(error.text || "Unable to send OTP.");
-}
-  };
+  if (!passwordPattern.test(formData.password)) {
+    setPasswordError(
+      "Password must be at least 8 characters and contain one uppercase letter, one lowercase letter, one number, and one special character."
+    );
+    return;
+  }
 
-  return (
-    <div className="register-page">
-      <div className="register-card">
+  // Confirm Password Validation
+  if (formData.password !== formData.confirmPassword) {
+    setConfirmPasswordError("Password and Confirm Password do not match.");
+    return;
+  }
 
-        <div
-          className="register-left"
-          style={{
-            backgroundImage: `url(${bgImage})`,
-          }}
-        ></div>
+  try {
+    const otp = Math.floor(100000 + Math.random() * 900000);
 
-        <div className="register-right">
+    sessionStorage.setItem("otp", otp);
 
-          <div className="register-content">
+    const templateParams = {
+      email: formData.email,
+      passcode: otp,
+      time: "15 minutes",
+    };
 
-            <h1>Register to Admin Panel</h1>
+    await emailjs.send(
+      "service_hprxsrn",
+      "template_w87t1hi",
+      templateParams,
+      "9hJ0am5Xfu6p8EFOx"
+    );
 
-            <p>Enter your Email ID and Password below</p>
+    localStorage.setItem(
+      "registerData",
+      JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      })
+    );
 
-            <form onSubmit={handleRegister}>
+    setSuccess("OTP sent successfully to your email!");
 
-              <div className="form-group">
+    setTimeout(() => {
+      navigate("/otp");
+    }, 2000);
+  } catch (error) {
+    console.log("EmailJS Error:", error);
+    console.log("Status:", error.status);
+    console.log("Text:", error.text);
 
-                <label>EMAIL ID</label>
+    setError(error.text || "Unable to send OTP.");
+  }
+};
+ 
+return (
+  <div className="register-page">
+    <div className="dots dots-top"></div>
+    <div className="dots dots-bottom"></div>
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="example@gmail.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
+    <div className="register-card">
+      <div
+        className="register-left"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      ></div>
 
-              </div>
-
-              <div className="form-group">
-
-                <label>PASSWORD</label>
-
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Minimum 8 characters"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-
-              </div>
-
-              <div className="form-group">
-
-                <label>CONFIRM PASSWORD</label>
-
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Re-enter password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                />
-
-              </div>
-
-              {error && (
-                <p className="error">{error}</p>
-              )}
-
-              {success && (
-                <div className="success-message">
-                  ✅ OTP sent successfully to your email!
-                </div>
-              )}
-
-
-              <button type="submit">
-                Send OTP
-              </button>
-
-            </form>
-
-            <div className="bottom-text">
-              Already have an account?
-              <Link to="/login"> Login</Link>
-            </div>
-
+      <div className="register-right">
+        <div className="register-content">
+          <div className="logo">
+            <img src={logo} alt="OneDAO Logo" className="logo-img" />
+            <span className="logo-dark">OneDAO</span>
           </div>
 
-        </div>
+          <h1>Register to Admin Panel</h1>
+          <p>Enter your Email ID and Password below</p>
 
+          <form onSubmit={handleRegister}>
+
+            {/* Email */}
+            <div className="form-group">
+              <div className="label-row">
+                <label>Email ID</label>
+
+                {error === "Enter a valid email." && (
+                  <span className="field-error">Invalid Email</span>
+                )}
+              </div>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="example@gmail.com"
+                value={formData.email}
+                onChange={handleChange}
+                className={error === "Enter a valid email." ? "input-error" : ""}
+              />
+            </div>
+
+            {/* Password */}
+            <div className="form-group">
+              <div className="label-row">
+                <label>Password</label>
+
+                {passwordError && (
+                  <span className="field-error">Invalid Password</span>
+                )}
+              </div>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Minimum 8 characters"
+                value={formData.password}
+                onChange={handleChange}
+                className={passwordError ? "input-error" : ""}
+              />
+
+              {passwordError && (
+                <div className="password-hint">
+                  <strong>Password must contain:</strong>
+
+                  <ul>
+                    <li>✓ At least 8 characters</li>
+                    <li>✓ One uppercase letter (A-Z)</li>
+                    <li>✓ One lowercase letter (a-z)</li>
+                    <li>✓ One number (0-9)</li>
+                    <li>✓ One special character (@, #, $, %, &, etc.)</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Confirm Password */}
+            <div className="form-group">
+              <div className="label-row">
+                <label>Confirm Password</label>
+
+                {confirmPasswordError && (
+                  <span className="field-error">
+                    Passwords do not match
+                  </span>
+                )}
+              </div>
+
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Re-enter password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className={confirmPasswordError ? "input-error" : ""}
+              />
+            </div>
+
+            {/* General Error */}
+            {error && error !== "Enter a valid email." && (
+              <p className="error">{error}</p>
+            )}
+
+            {/* Success */}
+            {success && (
+              <div className="success-message">
+                ✅ OTP sent successfully to your email!
+              </div>
+            )}
+
+            <button type="submit" className="register-btn">
+              Send OTP
+            </button>
+          </form>
+
+          <div className="bottom-text">
+            Already have an account?
+            <Link to="/login"> Login</Link>
+          </div>
+        </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Register;

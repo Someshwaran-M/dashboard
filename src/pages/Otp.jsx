@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Otp.css";
 import bgImage from "../assets/login-bg.jpg";
+import logo from "../assets/onedao-logo.png";
 
 const Otp = () => {
   const navigate = useNavigate();
@@ -12,16 +13,20 @@ const Otp = () => {
   const inputs = useRef([]);
 
   const handleChange = (value, index) => {
-    if (!/^[0-9]?$/.test(value)) return;
+  if (!/^[0-9]?$/.test(value)) return;
 
-    const newOtp = [...otp];
-    newOtp[index] = value;
-    setOtp(newOtp);
+  if (error) {
+    setError("");
+  }
 
-    if (value && index < 5) {
-      inputs.current[index + 1].focus();
-    }
-  };
+  const newOtp = [...otp];
+  newOtp[index] = value;
+  setOtp(newOtp);
+
+  if (value && index < 5) {
+    inputs.current[index + 1].focus();
+  }
+};
 
   const handleKeyDown = (e, index) => {
     if (
@@ -63,6 +68,8 @@ const Otp = () => {
 
   return (
     <div className="otp-page">
+      <div className="dots dots-top"></div>
+<div className="dots dots-bottom"></div>
       <div className="otp-card">
         <div
           className="otp-left"
@@ -73,6 +80,10 @@ const Otp = () => {
 
         <div className="otp-right">
           <div className="otp-content">
+            <div className="logo">
+  <img src={logo} alt="OneDAO Logo" className="logo-img" />
+  <span className="logo-dark">OneDAO</span>
+</div>
             <h1>Email Verification</h1>
 
             <p>
@@ -82,18 +93,15 @@ const Otp = () => {
             <div className="otp-boxes">
               {otp.map((digit, index) => (
                 <input
-                  key={index}
-                  ref={(el) => (inputs.current[index] = el)}
-                  type="text"
-                  maxLength="1"
-                  value={digit}
-                  onChange={(e) =>
-                    handleChange(e.target.value, index)
-                  }
-                  onKeyDown={(e) =>
-                    handleKeyDown(e, index)
-                  }
-                />
+  key={index}
+  ref={(el) => (inputs.current[index] = el)}
+  type="text"
+  maxLength={1}
+  value={digit}
+  className={error ? "otp-error" : ""}
+  onChange={(e) => handleChange(e.target.value, index)}
+  onKeyDown={(e) => handleKeyDown(e, index)}
+/>
               ))}
             </div>
 
@@ -103,7 +111,7 @@ const Otp = () => {
               </p>
             )}
 
-            <button onClick={verifyOTP}>
+            <button onClick={verifyOTP} className="verify-btn">
               Verify OTP
             </button>
           </div>
