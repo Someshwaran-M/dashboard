@@ -11,24 +11,54 @@ import "../styles/Dashboard.css";
 const Dashboard = () => {
   return (
     <div className="dashboard">
+
+      {/* Sidebar */}
       <Sidebar />
 
-      <div className="dashboard-content">
+      {/* Main Content */}
+      <main className="dashboard-content">
+
+        {/* Navbar */}
         <Navbar />
 
+        {/* Dashboard Header */}
+        <div className="dashboard-header">
+
+          <div className="header-left">
+            
+
+            <h1 className="section-title">
+              Dashboard Overview
+            </h1>
+
+            
+          </div>
+
+        </div>
+
+        {/* Dashboard Body */}
         <div className="dashboard-body">
+
+          {/* Left Side */}
           <div className="left-content">
-            <h1 className="section-title">Knowledge base</h1>
 
             <DashboardCards />
+
             <Statistics />
+
           </div>
 
+          {/* Right Side */}
           <div className="right-content">
+
             <TopDrivers />
+
           </div>
+
         </div>
-      </div>
+
+      </main>
+
     </div>
   );
 };

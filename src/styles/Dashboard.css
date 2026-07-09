@@ -7,150 +7,149 @@
     font-family:"Poppins",sans-serif;
 }
 
-html{
+html,
+body,
+#root{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#f5f7fb;
     scroll-behavior:smooth;
 }
 
-body{
-    margin:0;
-    overflow-x:hidden;
-    background:#f4f7fc;
-}
-
+/* ==========================
+   Dashboard Layout
+========================== */
 
 .dashboard{
     display:flex;
-    min-height:100vh;
-    background:#f4f7fc;
-}
-.dashboard-content{
-    flex:1;
-    background:#f6f8fc;
-    padding:20px;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:#f5f7fb;
 }
 
-.dashboard-content:hover{
-    transform:translateY(-4px);
-    box-shadow:
-    0 35px 80px rgba(0,0,0,.28);
+.dashboard-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:18px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:#f5f7fb;
 }
 
 .dashboard-body{
     display:grid;
     grid-template-columns:2fr 1fr;
-    gap:25px;
-    padding:25px;
+    gap:20px;
+    align-items:start;
 }
-
-/* ===========================
- Sections
-=========================== */
 
 .left-content,
 .right-content{
     display:flex;
     flex-direction:column;
-    gap:25px;
 }
 
+.right-content{
+    height:100%;
+}
+/* ==========================
+   Heading
+========================== */
+
 .section-title{
-    font-size:46px;
+    font-size:42px;
     font-weight:700;
     color:#111827;
+    margin-bottom:5px;
+    line-height:1.2;
 }
 
 .section-title::after{
-    width:70px;
+    content:"";
+    display:block;
+    width:65px;
     height:4px;
-    background:#4f46e5;
+    margin-top:10px;
+    border-radius:50px;
+    background:#5b5ce9;
 }
+
+/* ==========================
+   Common Card
+========================== */
 
 .dashboard-card{
+    position:relative;
     background:#fff;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-    border:1px solid #edf0f5;
-}
-
-.dashboard-card::before{
-    content:"";
-    position:absolute;
-    left:-100%;
-    top:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.5),
-    transparent);
-    transition:.7s;
-}
-
-.dashboard-card:hover::before{
-    left:100%;
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:.25s ease;
 }
 
 .dashboard-card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:
-    0 25px 60px rgba(37,99,235,.18);
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
 }
 
-/* ===========================
- Buttons
-=========================== */
+/* ==========================
+   Buttons
+========================== */
 
 button{
     border:none;
     outline:none;
-    padding:14px 28px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    color:#fff;
-    font-weight:600;
     cursor:pointer;
-    transition:.35s;
+    border-radius:14px;
+    padding:13px 28px;
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    background:linear-gradient(135deg,#5b5ce9,#6f5ef7);
+    transition:.25s;
 }
 
 button:hover{
-    transform:translateY(-3px);
-    box-shadow:
-    0 12px 30px rgba(37,99,235,.35);
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(91,92,233,.25);
 }
 
 button:active{
-    transform:scale(.96);
+    transform:scale(.97);
 }
 
-/* ===========================
- Inputs
-=========================== */
+/* ==========================
+   Inputs
+========================== */
 
 input,
-select,
-textarea{
+textarea,
+select{
     width:100%;
-    padding:15px 18px;
-    border-radius:14px;
     border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:14px 18px;
     outline:none;
-    transition:.3s;
     font-size:15px;
+    transition:.25s;
+    background:#fff;
 }
 
 input:focus,
-select:focus,
-textarea:focus{
-    border-color:#2563eb;
-    box-shadow:
-    0 0 0 5px rgba(37,99,235,.12);
+textarea:focus,
+select:focus{
+    border-color:#5b5ce9;
+    box-shadow:0 0 0 4px rgba(91,92,233,.12);
 }
 
-/* ===========================
- Tables
-=========================== */
+/* ==========================
+   Table
+========================== */
 
 table{
     width:100%;
@@ -158,46 +157,29 @@ table{
 }
 
 th{
+    text-align:left;
+    padding:16px;
     background:#f8fafc;
     color:#334155;
-    padding:18px;
-    text-align:left;
+    font-weight:600;
 }
 
 td{
-    padding:18px;
-    border-bottom:1px solid #eef2f7;
+    padding:16px;
+    border-bottom:1px solid #edf2f7;
 }
 
-tr{
-    transition:.3s;
+tbody tr{
+    transition:.25s;
 }
 
 tbody tr:hover{
-    background:#f1f5ff;
-    transform:scale(1.01);
+    background:#f7f9ff;
 }
 
-/* ===========================
- Scrollbar
-=========================== */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#ececec;
-}
-
-::-webkit-scrollbar-thumb{
-    background:linear-gradient(#2563eb,#7c3aed);
-    border-radius:20px;
-}
-
-/* ===========================
- Links
-=========================== */
+/* ==========================
+   Links
+========================== */
 
 a{
     text-decoration:none;
@@ -206,64 +188,49 @@ a{
 }
 
 a:hover{
-    color:#2563eb;
+    color:#5b5ce9;
 }
 
-/* ===========================
- Fade Animation
-=========================== */
+/* ==========================
+   Scrollbar
+========================== */
+
+.dashboard-content::-webkit-scrollbar{
+    width:8px;
+}
+
+.dashboard-content::-webkit-scrollbar-track{
+    background:#eef1f7;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb{
+    background:#5b5ce9;
+    border-radius:20px;
+}
+
+/* ==========================
+   Animation
+========================== */
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
-        transform:translateY(35px);
+        transform:translateY(30px);
     }
 
     to{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
-/* ===========================
- Floating Animation
-=========================== */
-
-.float{
-    animation:floating 4s ease-in-out infinite;
+.fade-up{
+    animation:fadeUp .5s ease;
 }
 
-@keyframes floating{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* ===========================
- Card Glow
-=========================== */
-
-.glow:hover{
-    box-shadow:
-    0 0 30px rgba(37,99,235,.35),
-    0 0 70px rgba(124,58,237,.15);
-}
-
-/* ===========================
- Responsive
-=========================== */
+/* ==========================
+   Responsive
+========================== */
 
 @media(max-width:1200px){
 
@@ -271,33 +238,36 @@ a:hover{
     grid-template-columns:1fr;
 }
 
+.right-content{
+    order:-1;
+}
+
 }
 
 @media(max-width:992px){
 
-.dashboard{
-    padding:10px;
-}
-
 .dashboard-content{
-    border-radius:25px;
-}
-
-.dashboard-body{
-    padding:25px;
+    padding:15px;
 }
 
 .section-title{
     font-size:34px;
 }
 
+.dashboard-body{
+    gap:20px;
+}
+
 }
 
 @media(max-width:768px){
 
+.dashboard-content{
+    padding:12px;
+}
+
 .dashboard-body{
-    padding:18px;
-    gap:20px;
+    gap:18px;
 }
 
 .section-title{
@@ -313,15 +283,97 @@ a:hover{
 @media(max-width:480px){
 
 .dashboard-content{
-    border-radius:18px;
+    padding:10px;
 }
 
 .section-title{
     font-size:24px;
 }
 
-.dashboard-body{
-    padding:15px;
+.dashboard-card{
+    padding:18px;
 }
 
+}
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:15px 5px 25px;
+}
+
+.breadcrumb{
+    font-size:14px;
+    color:#8b8fa3;
+    margin-bottom:8px;
+}
+
+.breadcrumb span{
+    margin:0 8px;
+}
+
+.section-title{
+    font-size:48px;
+    font-weight:700;
+    color:#17203a;
+    line-height:1.2;
+}
+
+.section-subtitle{
+    margin-top:8px;
+    color:#7b8196;
+    font-size:16px;
+    font-weight:400;
+}
+
+@media(max-width:768px){
+
+.dashboard-header{
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:32px;
+}
+
+.section-subtitle{
+    font-size:14px;
+}
+
+}
+
+.dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.header-left{
+    display:flex;
+    flex-direction:column;
+}
+
+.breadcrumb{
+    font-size:14px;
+    color:#8b8fa3;
+    margin-bottom:8px;
+}
+
+.breadcrumb span{
+    color:#6c63ff;
+    margin:0 6px;
+}
+
+.section-title{
+    font-size:34px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:6px;
+}
+
+.section-subtitle{
+    font-size:15px;
+    color:#6b7280;
 }

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   FaThLarge,
   FaClipboardList,
@@ -18,6 +20,29 @@ import "../styles/dashboard/Sidebar.css";
 import logo from "../assets/onedao-logo.png";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const [active, setActive] = useState("Dashboard");
+
+  const menuItems = [
+    { name: "Dashboard", icon: <FaThLarge />, path: "/dashboard" },
+    { name: "Orders", icon: <FaClipboardList />, path: "/orders" },
+    { name: "Rides", icon: <FaCarSide />, path: "/rides" },
+    { name: "Clients", icon: <FaUsers />, path: "/clients" },
+    { name: "Drivers", icon: <FaUserTie />, path: "/drivers" },
+    { name: "Shift", icon: <FaDollarSign />, path: "/shift" },
+    { name: "Live Map", icon: <FaMapMarkedAlt />, path: "/map" },
+    { name: "Car Classes", icon: <FaCar />, path: "/cars" },
+    { name: "Branches", icon: <FaCodeBranch />, path: "/branches" },
+    { name: "Moderators", icon: <FaUserShield />, path: "/moderators" },
+    { name: "Settings", icon: <FaSlidersH />, path: "/settings" },
+  ];
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <aside className="sidebar">
 
@@ -28,80 +53,33 @@ const Sidebar = () => {
         <span className="logo-dark">OneDAO</span>
       </div>
 
-      {/* Profile */}
 
-      <div className="profile">
-        <img
-          src="https://i.pravatar.cc/120?img=12"
-          alt="profile"
-        />
-
-        <div>
-          <h3>Maharram</h3>
-          <span>Admin</span>
-        </div>
-      </div>
 
       <ul className="menu">
 
-        <li className="active">
-          <FaThLarge />
-          Dashboard
-        </li>
+        {menuItems.map((item) => (
 
-        <li>
-          <FaClipboardList />
-          Orders
-        </li>
+          <li
+            key={item.name}
+            className={active === item.name ? "active" : ""}
+            onClick={() => {
+              setActive(item.name);
+              navigate(item.path);
+            }}
+          >
+            {item.icon}
 
-        <li>
-          <FaCarSide />
-          Rides
-        </li>
+            <span>{item.name}</span>
 
-        <li>
-          <FaUsers />
-          Clients
-        </li>
+          </li>
 
-        <li>
-          <FaUserTie />
-          Drivers
-        </li>
-
-        <li>
-          <FaDollarSign />
-          Shift
-        </li>
-
-        <li>
-          <FaMapMarkedAlt />
-          Live Map
-        </li>
-
-        <li>
-          <FaCar />
-          Car Classes
-        </li>
-
-        <li>
-          <FaCodeBranch />
-          Branches
-        </li>
-
-        <li>
-          <FaUserShield />
-          Reports
-        </li>
-
-        <li>
-          <FaSlidersH />
-          Settings
-        </li>
+        ))}
 
       </ul>
 
-      <button className="logout-btn">
+      {/* Logout */}
+
+      <button className="logout-btn" onClick={handleLogout}>
         <FaSignOutAlt />
         Logout
       </button>
