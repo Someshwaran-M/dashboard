@@ -2,7 +2,8 @@
 
 .register-page{
     width:100%;
-    min-height:100vh;
+    min-height:100dvh;
+    min-height:100svh;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -68,7 +69,8 @@
 
 .register-card{
     width:min(1180px,100%);
-    min-height:740px;
+    min-height:min(740px, calc(100dvh - 60px));
+    max-height:calc(100dvh - 60px);
     height:auto;
     background:#fff;
     border-radius:28px;
