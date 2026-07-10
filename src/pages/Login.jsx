@@ -56,9 +56,7 @@ const Login = () => {
   className="login-left"
   style={{
     backgroundImage: `url(${bgImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
+    
   }}
 ></div>
 
