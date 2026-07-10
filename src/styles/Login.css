@@ -64,7 +64,7 @@
 
 .login-card{
     width:min(1080px, 100%);
-    min-height:min(400px, 100%);
+    min-height:auto;
     max-width:100%;
     background:#fff;
     border-radius:28px;
