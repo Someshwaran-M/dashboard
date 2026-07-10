@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import {
   ResponsiveContainer,
-  AreaChart,
-  Area,
+  LineChart,
+  Line,
   CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
+  Legend,
 } from "recharts";
 
 import "../styles/dashboard/Statistics.css";
@@ -71,32 +72,20 @@ export default function Statistics() {
       </div>
 
       <div className="chart">
-        <ResponsiveContainer width="100%" height={330}>
-          <AreaChart
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
             data={chartData[filter]}
             margin={{
-              top: 20,
-              right: 10,
-              left: 0,
-              bottom: 0,
+              top: 15,
+              right: 20,
+              left: 10,
+              bottom: 5,
             }}
           >
-            <defs>
-              <linearGradient id="rev" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
-              </linearGradient>
-
-              <linearGradient id="pro" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10B981" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-
             <CartesianGrid
-              stroke="#edf2f7"
+              stroke="#EEF2F7"
+              strokeDasharray="3 3"
               vertical={false}
-              strokeDasharray="4 4"
             />
 
             <XAxis
@@ -109,7 +98,14 @@ export default function Statistics() {
               }}
             />
 
-            <YAxis hide />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              tick={{
+                fill: "#94A3B8",
+                fontSize: 12,
+              }}
+            />
 
             <Tooltip
               cursor={{
@@ -117,23 +113,29 @@ export default function Statistics() {
                 strokeWidth: 2,
               }}
               contentStyle={{
-                borderRadius: "12px",
-                background: "#6B7280",
+                background: "#FFFFFF",
                 border: "none",
-                color: "#fff",
-                boxShadow: "0 10px 25px rgba(0,0,0,.18)",
-              }}
-              labelStyle={{
-                display: "none",
+                borderRadius: "12px",
+                boxShadow: "0 10px 25px rgba(0,0,0,.15)",
               }}
             />
 
-            <Area
+            <Legend
+              verticalAlign="top"
+              align="right"
+              iconType="circle"
+            />
+
+            <Line
               type="monotone"
               dataKey="revenue"
+              name="Revenue"
               stroke="#2563EB"
               strokeWidth={3}
-              fill="url(#rev)"
+              dot={{
+                r: 4,
+                fill: "#2563EB",
+              }}
               activeDot={{
                 r: 7,
                 fill: "#2563EB",
@@ -142,12 +144,16 @@ export default function Statistics() {
               }}
             />
 
-            <Area
+            <Line
               type="monotone"
               dataKey="profit"
+              name="Profit"
               stroke="#10B981"
               strokeWidth={3}
-              fill="url(#pro)"
+              dot={{
+                r: 4,
+                fill: "#10B981",
+              }}
               activeDot={{
                 r: 7,
                 fill: "#10B981",
@@ -155,7 +161,7 @@ export default function Statistics() {
                 strokeWidth: 3,
               }}
             />
-          </AreaChart>
+          </LineChart>
         </ResponsiveContainer>
       </div>
     </div>
