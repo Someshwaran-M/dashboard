@@ -63,8 +63,8 @@
 }
 
 .login-card{
-    width:min(1180px, 100%);
-    min-height:min(660px, calc(100dvh - 44px));
+    width:min(1080px, 100%);
+    min-height:min(400px, 100%);
     max-width:100%;
     background:#fff;
     border-radius:28px;
