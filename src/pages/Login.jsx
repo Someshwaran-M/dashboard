@@ -117,10 +117,10 @@ const Login = () => {
 </div>
 
     <div className="login-options">
-      <Link to="/forgot-password" className="forgot">
-        Forgot password?
-      </Link>
-    </div>
+  <Link to="/register" className="forgot">
+    Forgot password
+  </Link>
+</div>
 
     <button className="login-btn" type="submit">
       Login
