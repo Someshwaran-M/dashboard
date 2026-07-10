@@ -66,6 +66,7 @@ const Login = () => {
 </div>
 
   <h2>Login to Admin Panel</h2>
+
   <form onSubmit={handleLogin}>
 
     <div className="form-group">
@@ -138,7 +139,7 @@ const Login = () => {
 
   </form>
 
-  <div className="register">
+  <div className="bottom-text">
     Don't have an account?
     <Link to="/register"> Register</Link>
   </div>

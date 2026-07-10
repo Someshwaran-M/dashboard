@@ -61,16 +61,15 @@
   left: 55px;
 }
 
-.login-card {
-  width:min(1180px,100%);
-    height:auto;
+.login-card{
+    width:min(1180px,100%);
     max-width:100%;
+    height:655px;              /* Same visual height as Register */
     background:#fff;
     border-radius:28px;
     display:flex;
-    align-items:stretch;
     overflow:hidden;
-    padding:18px;
+    padding:14px;
     position:relative;
     z-index:10;
     margin:auto;
@@ -103,7 +102,7 @@
     justify-content:center;
     align-items:center;
     padding:20px;
-    overflow-y:auto;
+    
 }
 
 .login-content {
@@ -137,10 +136,10 @@
     margin-bottom:20px;
 }
 
-.subtitle {
-  color: #777;
-  font-size: 15px;
-  margin-bottom: 25px;
+.login-content p {
+    color:#777;
+    font-size:15px;
+    margin-bottom:25px;
 }
 
 .form-group {
@@ -264,23 +263,25 @@
   box-shadow: 0 12px 25px rgba(101, 87, 184, 0.35);
 }
 
-.register {
+.bottom-text {
   margin-top: 18px;
   text-align: center;
-  font-size: 14px;
   color: #666;
+  font-size: 14px;
 }
 
-.register a {
+.bottom-text a {
   color: #6557b8;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.register a:hover {
+.bottom-text a:hover {
   text-decoration: underline;
 }
 
 .google-login {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .google-btn {
@@ -382,7 +383,7 @@
     margin-bottom: 18px;
   }
 
-  .register {
+  .bottom-text {
     margin-top: 18px;
   }
 }
@@ -472,7 +473,7 @@
     height: 20px;
   }
 
-  .register {
+  .bottom-text {
     font-size: 13px;
     margin-top: 16px;
     text-align: center;
