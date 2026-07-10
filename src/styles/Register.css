@@ -1,5 +1,3 @@
-
-
 .register-page{
    width: 100%;
   min-height: 750px;
@@ -185,92 +183,227 @@ button:disabled {
 }
 
 
+@media (max-width: 992px) {
 
-/* ================= RESPONSIVE ================= */
+  .register-page{
+    min-height:100vh;
+    padding:20px;
+  }
 
-@media(max-width:950px){
-
-.register-card{
-
-flex-direction:column;
-
-width:95%;
-
-height:auto;
-
-}
-
-.register-right{
-    flex:1;
+  .register-card{
     width:100%;
-    max-width:none;
-}
+    max-width:700px;
+    height:auto;
+    min-height:auto;
+    flex-direction:column;
+    padding:16px;
+    border-radius:22px;
+  }
 
-.register-left{
-
-width:100%;
-
-height:260px;
-
-}
-
-.register-right{
-    flex:1;
+  .register-left{
     width:100%;
-    padding:30px 20px;
-}
+    min-width:100%;
+    height:260px;
+    min-height:260px;
+    border-radius:18px;
+  }
 
-.register-content{
+  .register-right{
+    width:100%;
+    max-width:100%;
+    min-height:auto;
+    padding:40px 30px;
+  }
+
+  .register-content{
     width:100%;
     max-width:500px;
-}
+  }
 
-.register-content h2{
+  .register-page .logo{
+    justify-content:center;
+  }
 
-font-size:35px;
+  .register-content h2,
+  .register-content p{
+    text-align:center;
+  }
 
-line-height:42px;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.register-page{
-
-padding:20px;
+  .dots{
+    display:none;
+  }
 
 }
 
-.register-card{
 
-border-radius:25px;
+
+@media (max-width:768px){
+
+  .register-page{
+    min-height:100vh;
+    padding:16px;
+    align-items:flex-start;
+    padding-top:25px;
+  }
+
+  .register-card{
+    width:100%;
+    height:auto;
+    padding:14px;
+    border-radius:20px;
+  }
+
+  .register-left{
+    width:100%;
+    min-width:100%;
+    height:220px;
+    min-height:220px;
+    border-radius:16px;
+  }
+
+  .register-right{
+    width:100%;
+    padding:28px 20px;
+  }
+
+  .register-content{
+    max-width:100%;
+  }
+
+  .register-page .logo{
+    justify-content:center;
+    margin-bottom:18px;
+  }
+
+  .register-page .logo-img{
+    width:50px;
+  }
+
+  .register-page .logo-dark{
+    font-size:24px;
+  }
+
+  .register-content h2{
+    font-size:28px;
+    text-align:center;
+  }
+
+  .register-content p{
+    font-size:14px;
+    text-align:center;
+  }
+
+  .label-row{
+    margin-bottom:6px;
+  }
+
+  .field-error{
+    font-size:11px;
+  }
+
+  .form-group input{
+    height:48px;
+    font-size:15px;
+    padding:0 16px;
+  }
+
+  .register-btn{
+    height:48px;
+    font-size:15px;
+  }
+
+  .bottom-text{
+    font-size:13px;
+    margin-top:16px;
+    text-align:center;
+  }
+
+  .password-hint{
+    padding:12px;
+  }
+
+  .password-hint strong{
+    font-size:13px;
+  }
+
+  .password-hint li{
+    font-size:12px;
+  }
+
+  .dots{
+    display:none;
+  }
 
 }
 
-.register-content h2{
 
-font-size:30px;
+@media (max-width:480px){
 
-}
+  .register-page{
+    padding:10px;
+  }
 
-.form-group input{
+  .register-card{
+    padding:10px;
+    border-radius:16px;
+  }
 
-height:52px;
+  .register-left{
+    height:180px;
+    min-height:180px;
+    border-radius:14px;
+  }
 
-}
+  .register-right{
+    padding:22px 14px;
+  }
 
-.register-btn{
-    height:55px;
-    font-size:18px;
-}
+  .register-page .logo-img{
+    width:44px;
+  }
 
-.bottom-text{
+  .register-page .logo-dark{
+    font-size:22px;
+  }
 
-font-size:15px;
+  .register-content h2{
+    font-size:24px;
+  }
 
-}
+  .register-content p{
+    font-size:13px;
+  }
+
+  .form-group input{
+    height:45px;
+    font-size:14px;
+    padding:0 14px;
+  }
+
+  .register-btn{
+    height:45px;
+    font-size:14px;
+  }
+
+  .field-error{
+    font-size:10px;
+  }
+
+  .password-hint{
+    padding:10px;
+  }
+
+  .password-hint strong{
+    font-size:12px;
+  }
+
+  .password-hint li{
+    font-size:11px;
+  }
+
+  .bottom-text{
+    font-size:12px;
+  }
 
 }
 
@@ -327,7 +460,6 @@ font-size:15px;
     outline: none;
 }
 
-/* ================= ERROR MESSAGE ================= */
 
 .error{
     margin-top:8px;
@@ -345,7 +477,6 @@ font-size:15px;
     display:none;
 }
 
-/* ================= INPUT ERROR ================= */
 
 .input-error{
     border:2px solid #ff3b30 !important;
@@ -363,7 +494,7 @@ font-size:15px;
     font-weight:600;
 }
 
-/* ================= PASSWORD HINT ================= */
+
 
 .password-hint{
     margin-top:10px;
@@ -400,7 +531,6 @@ font-size:15px;
     margin-bottom:0;
 }
 
-/* ================= SUCCESS MESSAGE ================= */
 
 .success-message{
     margin:15px 0;
