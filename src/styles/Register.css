@@ -14,30 +14,6 @@
 }
 
 
-.register-page::before{
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    top: -120px;
-    left: -120px;
-    border-radius: 50%;
-    background: rgba(129,92,255,.18);
-    z-index: 0;
-}
-
-.register-page::after{
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    bottom: -120px;
-    right: -120px;
-    border-radius: 50%;
-    background: rgba(129,92,255,.18);
-    z-index: 0;
-}
-
 .register-page .logo{
     display:flex;
     align-items:center;
