@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
   FaThLarge,
@@ -12,7 +12,6 @@ import {
   FaCar,
   FaCodeBranch,
   FaUserShield,
-  FaSlidersH,
   FaSignOutAlt,
 } from "react-icons/fa";
 
@@ -22,20 +21,17 @@ import logo from "../assets/onedao-logo.png";
 const Sidebar = () => {
   const navigate = useNavigate();
 
-  const [active, setActive] = useState("Dashboard");
-
   const menuItems = [
     { name: "Dashboard", icon: <FaThLarge />, path: "/dashboard" },
-    { name: "Orders", icon: <FaClipboardList />, path: "/orders" },
-    { name: "Rides", icon: <FaCarSide />, path: "/rides" },
-    { name: "Clients", icon: <FaUsers />, path: "/clients" },
-    { name: "Drivers", icon: <FaUserTie />, path: "/drivers" },
-    { name: "Shift", icon: <FaDollarSign />, path: "/shift" },
-    { name: "Live Map", icon: <FaMapMarkedAlt />, path: "/map" },
-    { name: "Car Classes", icon: <FaCar />, path: "/cars" },
-    { name: "Branches", icon: <FaCodeBranch />, path: "/branches" },
-    { name: "Moderators", icon: <FaUserShield />, path: "/moderators" },
-    
+    { name: "Orders", icon: <FaClipboardList />, path: "/dashboard/orders" },
+    { name: "Rides", icon: <FaCarSide />, path: "/dashboard/rides" },
+    { name: "Clients", icon: <FaUsers />, path: "/dashboard/clients" },
+    { name: "Drivers", icon: <FaUserTie />, path: "/dashboard/drivers" },
+    { name: "Shift", icon: <FaDollarSign />, path: "/dashboard/shift" },
+    { name: "Live Map", icon: <FaMapMarkedAlt />, path: "/dashboard/livemap" },
+    { name: "Car Classes", icon: <FaCar />, path: "/dashboard/carclasses" },
+    { name: "Branches", icon: <FaCodeBranch />, path: "/dashboard/branches" },
+    { name: "Moderators", icon: <FaUserShield />, path: "/dashboard/moderators" },
   ];
 
   const handleLogout = () => {
@@ -45,45 +41,32 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-
-      {/* Logo */}
-
       <div className="logo">
         <img src={logo} alt="OneDAO Logo" className="logo-img" />
         <span className="logo-dark">OneDAO</span>
       </div>
 
-
-
       <ul className="menu">
-
         {menuItems.map((item) => (
-
-          <li
-            key={item.name}
-            className={active === item.name ? "active" : ""}
-            onClick={() => {
-              setActive(item.name);
-              navigate(item.path);
-            }}
-          >
-            {item.icon}
-
-            <span>{item.name}</span>
-
+          <li key={item.name}>
+            <NavLink
+              to={item.path}
+              end={item.path === "/dashboard"}
+              className={({ isActive }) =>
+                isActive ? "menu-link active" : "menu-link"
+              }
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </NavLink>
           </li>
-
         ))}
-
       </ul>
-
-      {/* Logout */}
 
       <button className="logout-btn" onClick={handleLogout}>
         <FaSignOutAlt />
         Logout
       </button>
-
     </aside>
   );
 };

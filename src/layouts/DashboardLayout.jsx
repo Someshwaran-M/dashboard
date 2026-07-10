@@ -11,17 +11,19 @@ export default function DashboardLayout() {
 
       <Sidebar />
 
-      <div className="main">
+      <div className="content">
 
         <Navbar />
 
-        <div className="content-wrapper">
+        <div className="page-content">
 
-          <div className="page-content">
+          <div className="main-section">
             <Outlet />
           </div>
 
-          <TopDrivers />
+          <div className="right-section">
+            <TopDrivers />
+          </div>
 
         </div>
 

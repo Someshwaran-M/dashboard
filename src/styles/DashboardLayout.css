@@ -1,39 +1,43 @@
+/* ===================== Layout ===================== */
+
 .layout{
     display:flex;
     width:100%;
-    min-height:100dvh;
-    overflow:hidden;
+    min-height:100vh;
     background:#f5f7fb;
 }
 
-.main{
-    flex:1 1 auto;
-    min-width:0;
-    min-height:0;
+/* ===================== Right Side ===================== */
+
+.content{
+    flex:1;
     display:flex;
     flex-direction:column;
-    overflow:hidden;
+    min-width:0;
 }
 
-.content-wrapper{
-    flex:1 1 auto;
-    min-height:0;
-    min-width:0;
+/* ===================== Navbar + Body ===================== */
+
+.page-content{
+    flex:1;
     display:flex;
     gap:24px;
     padding:24px;
     overflow:hidden;
 }
 
-.page-content{
-    flex:1 1 auto;
+/* ===================== Main Content ===================== */
+
+.main-section{
+    flex:1;
     min-width:0;
-    min-height:0;
     overflow-y:auto;
-    padding-right:8px;
 }
 
-.top-drivers{
-    width:430px;
+/* ===================== Right Panel ===================== */
+
+.right-section{
+    width:420px;
     flex-shrink:0;
+    display:flex;
 }
