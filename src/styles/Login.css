@@ -66,7 +66,7 @@
 /* ---------------------- CARD ---------------------- */
 
 .login-card{
-     width:min(1180px,100%);
+    width:min(1180px,100%);
     height:auto;
     max-width:100%;
     background:#fff;
@@ -78,7 +78,6 @@
     position:relative;
     z-index:10;
     margin:auto;
-
     box-shadow:
         0 30px 80px rgba(109,91,208,.12),
         0 15px 35px rgba(0,0,0,.08);
@@ -87,7 +86,7 @@
 /* ---------------------- LEFT ---------------------- */
 
 .login-left{
-   flex:1.1;
+    flex:1.1;
     border-radius:22px;
     background-size:cover;
     background-position:center;
