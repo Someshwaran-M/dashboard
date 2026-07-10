@@ -49,8 +49,8 @@
   position: relative;
   overflow: hidden;
 
-  min-width: 420px;
-  min-height: 650px;
+  min-width: 450px;
+  min-height: 630px;
 }
 
 .login-left::after {
