@@ -310,8 +310,23 @@
   font-size: 13px;
   font-weight: 600;
 }
-/* ================= TABLETS ================= */
 
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
 @media (max-width: 992px) {
 
   .login-page{
@@ -359,7 +374,6 @@
 }
 
 
-/* ================= MOBILE ================= */
 
 @media (max-width:768px){
 
@@ -438,8 +452,6 @@
 
 }
 
-
-/* ================= SMALL MOBILES ================= */
 
 @media (max-width:480px){
 
