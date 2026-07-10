@@ -1,0 +1,245 @@
+/* ================= Clients Page ================= */
+
+.clients-page{
+    width:100%;
+    height:100%;
+    padding:20px;
+    background:#f5f7fb;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+/* ================= Header ================= */
+
+.clients-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.clients-header h1{
+    font-size:28px;
+    color:#1e293b;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+.clients-header p{
+    color:#64748b;
+    font-size:14px;
+}
+
+.new-client-btn{
+    padding:12px 22px;
+    border:none;
+    border-radius:10px;
+    background:#4f46e5;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.new-client-btn:hover{
+    background:#4338ca;
+}
+
+/* ================= Summary Cards ================= */
+
+.clients-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin-bottom:16px;
+}
+
+.client-card{
+    background:#fff;
+    height:80px;
+    padding:12px;
+    border-radius:14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.client-card svg{
+    font-size:24px;
+    margin-bottom:6px;
+    color:#4f46e5;
+}
+
+.client-card h3{
+    font-size:22px;
+    color:#1e293b;
+}
+
+.client-card p{
+    font-size:13px;
+    color:#64748b;
+}
+
+/* ================= Toolbar ================= */
+
+.clients-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    margin-bottom:18px;
+}
+
+.search-box-client{
+    flex:1;
+    max-width:420px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    padding:12px 16px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.search-box-client input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:15px;
+}
+
+.clients-toolbar select{
+    padding:12px 16px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    cursor:pointer;
+    background:#fff;
+}
+
+/* ================= Table ================= */
+
+.clients-table{
+    flex:1;
+    background:#fff;
+    border-radius:18px;
+    overflow:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.clients-table table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.clients-table thead{
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.clients-table th{
+    background:#4f46e5;
+    color:#fff;
+    padding:15px;
+    text-align:left;
+    font-size:15px;
+}
+
+.clients-table td{
+    padding:14px 15px;
+    border-bottom:1px solid #ececec;
+    font-size:14px;
+    color:#374151;
+}
+
+.clients-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* ================= Status ================= */
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+}
+
+.active{
+    background:#22c55e;
+}
+
+.pending{
+    background:#f59e0b;
+}
+
+.inactive{
+    background:#ef4444;
+}
+
+/* ================= Scrollbar ================= */
+
+.clients-table::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+
+.clients-table::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:1200px){
+
+    .clients-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .clients-page{
+        padding:15px;
+        overflow:auto;
+    }
+
+    .clients-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .clients-cards{
+        grid-template-columns:1fr;
+    }
+
+    .clients-toolbar{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search-box-client{
+        max-width:100%;
+    }
+
+    .clients-table{
+        overflow-x:auto;
+    }
+
+    .clients-table table{
+        min-width:700px;
+    }
+
+}
