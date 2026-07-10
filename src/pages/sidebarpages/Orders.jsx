@@ -73,7 +73,7 @@ const Orders = () => {
       <div className="orders-header">
         <div>
           <h1>Orders Management</h1>
-          <p>Manage and monitor all customer orders.</p>
+      
         </div>
 
         <button className="new-order-btn">+ New Order</button>
