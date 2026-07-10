@@ -26,7 +26,7 @@ const Login = () => {
 
   setError("");
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user") || "null");
 
   console.log("Saved User:", user);
   console.log("Entered:", formData);
@@ -53,9 +53,14 @@ const Login = () => {
 <div className="dots dots-bottom"></div>
       <div className="login-card">
         <div
-          className="login-left"
-          style={{ backgroundImage: `url(${bgImage})` }}
-        ></div>
+  className="login-left"
+  style={{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+></div>
 
         <div className="login-right">
           <div className="login-content">
@@ -82,6 +87,7 @@ const Login = () => {
 
   <input
     type="email"
+    autoComplete="off"
     name="email"
     placeholder="email@domain.com"
     value={formData.email}
@@ -103,6 +109,7 @@ const Login = () => {
 
   <input
     type="password"
+    autoComplete="off"
     name="password"
     placeholder="••••••••••••"
     value={formData.password}

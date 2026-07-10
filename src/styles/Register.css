@@ -7,10 +7,11 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:24px;
+    padding:clamp(16px, 2vw, 28px);
     position:relative;
     overflow:hidden;
     background:#f8f8ff;
+    box-sizing:border-box;
 }
 
 .register-page::before{
@@ -40,8 +41,8 @@
 .register-page .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:25px;
+    gap:10px;
+    margin-bottom:20px;
 }
 
 .register-page .logo-img{
@@ -68,8 +69,8 @@
 }
 
 .register-card{
-    width:min(1180px,100%);
-    height:auto;
+    width:min(1280px, 100%);
+    min-height:min(860px, calc(100dvh - 48px));
     max-width:100%;
     background:#fff;
     border-radius:28px;
@@ -80,6 +81,7 @@
     position:relative;
     z-index:10;
     margin:auto;
+    box-sizing:border-box;
 
     box-shadow:
         0 30px 80px rgba(109,91,208,.12),
@@ -88,13 +90,14 @@
 
 
 .register-left{
-    flex:1.1;
+    flex:1.08;
     border-radius:22px;
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     position:relative;
     overflow:hidden;
+    min-height:100%;
 }
 
 .register-left::after{
@@ -107,18 +110,24 @@
         rgba(0,0,0,.05));
 }
 .register-right{
-    flex:0.9;
+    flex:0 0 470px;
+    max-width:470px;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:clamp(24px, 3vw, 42px);
     overflow-y:auto;
+    min-height:100%;
 }
 
 .register-content{
     width:100%;
-    max-width:420px;
+    max-width:430px;
     padding:8px 0;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 button:disabled {
@@ -129,17 +138,19 @@ button:disabled {
 .register-content h2{
     font-size:33px;
     color:#181818;
-    margin-bottom:20px;
+    margin-bottom:14px;
+    line-height:1.2;
 }
 
 .register-content p{
     color:#777;
     font-size:15px;
-    margin-bottom:25px;
+    margin-bottom:20px;
+    line-height:1.5;
 }
 
 .form-group{
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .form-group label{
@@ -156,7 +167,7 @@ button:disabled {
     background:#6557B8;
     color:#fff;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     font-size:16px;
     font-weight:600;
     cursor:pointer;
@@ -169,7 +180,7 @@ button:disabled {
 }
 
 .bottom-text{
-    margin-top:18px;
+    margin-top:16px;
     text-align:center;
     color:#666;
     font-size:14px;
@@ -199,6 +210,12 @@ width:95%;
 
 height:auto;
 
+}
+
+.register-right{
+    flex:1;
+    width:100%;
+    max-width:none;
 }
 
 .register-left{

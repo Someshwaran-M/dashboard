@@ -9,10 +9,11 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:24px;
+    padding:clamp(16px, 2vw, 28px);
     position:relative;
     overflow:hidden;
     background:#f8f8ff;
+    box-sizing:border-box;
 }
 
 .otp-page::before{
@@ -81,8 +82,8 @@
 .otp-page .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:25px;
+    gap:10px;
+    margin-bottom:20px;
 }
 
 .otp-page .logo-img{
@@ -98,8 +99,8 @@
 }
 
 .otp-card{
-    width:min(1180px,100%);
-    height:auto;
+    width:min(1280px, 100%);
+    min-height:min(860px, calc(100dvh - 48px));
     max-width:100%;
     background:#fff;
     border-radius:28px;
@@ -109,6 +110,8 @@
     padding:18px;
     position:relative;
     z-index:10;
+    margin:auto;
+    box-sizing:border-box;
 
     box-shadow:
         0 30px 80px rgba(109,91,208,.12),
@@ -127,13 +130,14 @@
 }
 
 .otp-left{
-    flex:1.1;
+    flex:1.08;
     border-radius:22px;
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     position:relative;
     overflow:hidden;
+    min-height:100%;
 }
 
 .otp-left::after{
@@ -147,33 +151,40 @@
 }
 
 .otp-right{
-    flex:0.9;
+    flex:0 0 470px;
+    max-width:470px;
     display:flex;
     justify-content:center;
     align-items:center;
     background:#fff;
-    padding:20px;
+    padding:clamp(24px, 3vw, 42px);
     overflow-y:auto;
+    min-height:100%;
 }
 
 .otp-content{
     width:100%;
-    max-width:420px;
+    max-width:430px;
     text-align:left;
     padding:8px 0;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .otp-content h2{
     font-size:34px;
     color:#181818;
-    margin-bottom:5px;
+    margin-bottom:6px;
+    line-height:1.2;
 }
 
 .otp-content p{
     color:#777;
     font-size:15px;
-    margin-bottom:30px;
-    line-height:24px;
+    margin-bottom:24px;
+    line-height:1.5;
 }
 
 
@@ -204,8 +215,8 @@
 .otp-boxes{
     display:flex;
     justify-content:space-between;
-    gap:12px;
-    margin-bottom:30px;
+    gap:10px;
+    margin-bottom:24px;
 }
 /* Hover Effect */
 .otp-boxes input:hover{
@@ -252,7 +263,7 @@
     width:100%;
     height:52px;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     background:#6557B8;
     color:#fff;
     font-size:16px;
