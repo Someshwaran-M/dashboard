@@ -63,14 +63,14 @@
 
 .login-card{
     width:min(1180px,100%);
-    height:65px;
+    height:640px;
     max-width:100%;
     background:#fff;
     border-radius:28px;
     display:flex;
     align-items:stretch;
     overflow:hidden;
-    padding:18px;
+    padding:0;
     position:relative;
     z-index:10;
     margin:auto;
@@ -82,12 +82,14 @@
 
 .login-left {
   flex: 1.1;
-  border-radius: 22px;
+  border-radius: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  margin: 0;
+  min-width: 0;
 }
 
 .login-left::after {
@@ -102,14 +104,14 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
-    overflow-y:auto;
+    padding:10px 12px;
+    overflow:hidden;
 }
 
 .login-content {
   width: 100%;
   max-width: 420px;
-  padding: 8px 0;
+  padding: 0;
 }
 
 .login-page .logo {
