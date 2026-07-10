@@ -1,43 +1,117 @@
-/* ===================== Layout ===================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================
+   Layout
+========================== */
 
 .layout{
     display:flex;
     width:100%;
-    min-height:100vh;
+    height:100vh;
+    overflow:hidden;
     background:#f5f7fb;
 }
 
-/* ===================== Right Side ===================== */
+/* ==========================
+   Content Area
+========================== */
 
 .content{
     flex:1;
     display:flex;
     flex-direction:column;
     min-width:0;
-}
-
-/* ===================== Navbar + Body ===================== */
-
-.page-content{
-    flex:1;
-    display:flex;
-    gap:24px;
-    padding:24px;
+    height:100vh;
     overflow:hidden;
 }
 
-/* ===================== Main Content ===================== */
+/* ==========================
+   Navbar
+========================== */
 
-.main-section{
-    flex:1;
-    min-width:0;
-    overflow-y:auto;
+.navbar{
+    flex-shrink:0;
+    background:#f5f7fb;
+    padding:20px 20px 10px;
+    z-index:100;
 }
 
-/* ===================== Right Panel ===================== */
+/* ==========================
+   Main Body
+========================== */
+
+.page-content{
+    flex:1;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 430px;
+    gap:24px;
+    padding:0 20px 20px;
+    overflow:hidden;
+}
+
+/* ==========================
+   Left Content
+========================== */
+
+.main-section{
+    min-width:0;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding-right:6px;
+}
+
+.main-section::-webkit-scrollbar{
+    width:8px;
+}
+
+.main-section::-webkit-scrollbar-thumb{
+    background:#5b5ce9;
+    border-radius:20px;
+}
+
+.main-section::-webkit-scrollbar-track{
+    background:#eef1f7;
+}
+
+/* ==========================
+   Right Panel
+========================== */
 
 .right-section{
-    width:420px;
-    flex-shrink:0;
+    width:430px;
     display:flex;
+    flex-direction:column;
+    flex-shrink:0;
+    overflow:hidden;
+}
+
+.right-section > *{
+    flex:1;
+    width:100%;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:1200px){
+
+    .page-content{
+        grid-template-columns:1fr;
+    }
+
+    .right-section{
+        width:100%;
+        height:auto;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .page-content{
+        padding:0 15px 15px;
+        gap:18px;
+    }
+
 }
