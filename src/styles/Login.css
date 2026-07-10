@@ -2,7 +2,7 @@
 
 .login-page {
   width: 100%;
-  min-height: 90vh;
+  min-height: 920px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
   position: relative;
   background: #f8f8ff;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+ 
 }
 
 .login-page::before{
