@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Otp.css";
 import bgImage from "../assets/login-bg.jpg";
 import logo from "../assets/onedao-logo.png";
-import Swal from "sweetalert2";
+import Swal from "Sweetalert2";
 
 const Otp = () => {
   const navigate = useNavigate();
