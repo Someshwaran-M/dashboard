@@ -24,8 +24,10 @@ const Navbar = () => {
     email: "maharram@example.com",
     phone: "+91 9876543210",
     role: "Administrator",
+    image: "https://i.pravatar.cc/150?img=12",
   });
 
+  // Handle input changes
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -33,14 +35,29 @@ const Navbar = () => {
     });
   };
 
-  const handleSave = () => {
-    alert("Profile Updated Successfully!");
-    setShowProfile(false);
+  // Handle profile image change
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const imageURL = URL.createObjectURL(file);
+
+      setUser((prev) => ({
+        ...prev,
+        image: imageURL,
+      }));
+    }
   };
+
+  // Save button
+ const handleSave = () => {
+  setShowProfile(false);
+};
 
   return (
     <>
       <header className="navbar">
+        {/* Left */}
         <div className="navbar-left">
           <button className="menu-btn">
             <FaBars />
@@ -52,6 +69,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Center */}
         <div className="navbar-center">
           <div className="search-box">
             <FaSearch className="search-icon" />
@@ -62,6 +80,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Right */}
         <div className="navbar-right">
           <button className="icon-btn">
             <FaEnvelope />
@@ -77,10 +96,7 @@ const Navbar = () => {
             className="user-box"
             onClick={() => setShowProfile(true)}
           >
-            <img
-              src="https://i.pravatar.cc/150?img=12"
-              alt="Profile"
-            />
+            <img src={user.image} alt={user.name} />
 
             <div className="user-info">
               <h4>{user.name}</h4>
@@ -109,10 +125,20 @@ const Navbar = () => {
             </button>
 
             <img
-              src="https://i.pravatar.cc/150?img=12"
+              src={user.image}
               className="profile-img"
-              alt="Profile"
+              alt={user.name}
             />
+
+            <label className="upload-btn">
+              Change Photo
+              <input
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={handleImageChange}
+              />
+            </label>
 
             <h2>Edit Profile</h2>
 
@@ -132,12 +158,19 @@ const Navbar = () => {
               onChange={handleChange}
             />
 
-            <label>Phone</label>
+            <label>Phone Number</label>
             <input
               type="text"
               name="phone"
               value={user.phone}
               onChange={handleChange}
+            />
+
+            <label>Role</label>
+            <input
+              type="text"
+              value={user.role}
+              disabled
             />
 
             <button
