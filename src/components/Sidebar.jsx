@@ -35,7 +35,7 @@ const Sidebar = () => {
     { name: "Car Classes", icon: <FaCar />, path: "/cars" },
     { name: "Branches", icon: <FaCodeBranch />, path: "/branches" },
     { name: "Moderators", icon: <FaUserShield />, path: "/moderators" },
-    { name: "Settings", icon: <FaSlidersH />, path: "/settings" },
+    
   ];
 
   const handleLogout = () => {
