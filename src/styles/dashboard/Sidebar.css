@@ -21,7 +21,7 @@
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
+    
     margin-bottom:28px;
     padding:0 10px;
 }
@@ -88,16 +88,15 @@
     list-style:none;
     display:flex;
     flex-direction:column;
-
     flex:1;
     overflow-y:auto;
+    
 }
 
 .menu li{
     display:flex;
     align-items:center;
-    gap:14px;
-    padding:13px 16px;
+    padding:10px;
     border-radius:14px;
     color:#5d6478;
     cursor:pointer;
