@@ -1,72 +1,20 @@
-/* Google Font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-/* Reset */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Root Elements */
 html,
 body,
 #root {
   width: 100%;
-  min-height: 100dvh;
   height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
 }
 
-/* Body */
 body {
   font-family: "Poppins", sans-serif;
   background: #f8f8ff;
   color: #333;
   overflow-x: hidden;
-  min-height: 100dvh;
+  overflow-y: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Buttons */
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-/* Inputs */
-input,
-textarea,
-select {
-  font-family: inherit;
-  outline: none;
-}
-
-/* Lists */
-ul,
-ol {
-  list-style: none;
-}
-
-/* Tables */
-table {
-  border-collapse: collapse;
-  width: 100%;
 }

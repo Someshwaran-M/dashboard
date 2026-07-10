@@ -14,7 +14,7 @@
  
 }
 
-.login-page::before{
+/*.login-page::before{
     content: "";
     position: absolute;
     width: 280px;
@@ -58,7 +58,7 @@
 .dots-bottom {
   bottom: 55px;
   left: 55px;
-}
+}*/
 .login-card{
     width:100%;
     max-width:1080px;
