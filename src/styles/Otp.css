@@ -9,7 +9,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:35px;
+    padding:24px;
     position:relative;
     overflow:hidden;
     background:#f8f8ff;
@@ -99,9 +99,8 @@
 
 .otp-card{
     width:min(1180px,100%);
-    min-height:min(740px, calc(100dvh - 60px));
-    max-height:calc(100dvh - 60px);
     height:auto;
+    max-width:100%;
     background:#fff;
     border-radius:28px;
     display:flex;
@@ -154,12 +153,14 @@
     align-items:center;
     background:#fff;
     padding:20px;
+    overflow-y:auto;
 }
 
 .otp-content{
     width:100%;
     max-width:420px;
     text-align:left;
+    padding:8px 0;
 }
 
 .otp-content h2{

@@ -69,9 +69,8 @@
 
 .register-card{
     width:min(1180px,100%);
-    min-height:640px;
-    max-height:calc(100dvh - 48px);
     height:auto;
+    max-width:100%;
     background:#fff;
     border-radius:28px;
     display:flex;
