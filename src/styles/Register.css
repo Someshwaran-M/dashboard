@@ -79,8 +79,8 @@
   position: relative;
   overflow: hidden;
 
-  min-width: 420px;
-  min-height: 650px;
+  min-width: 470px;
+  min-height: 600px;
 }
 
 
@@ -95,13 +95,13 @@
 }
 .register-right{
     flex: 1;
-    max-width:520px;
+    max-width:540px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    padding:40px;
+    padding:80px;
 
     min-height:650px;
 
