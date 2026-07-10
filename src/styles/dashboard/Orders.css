@@ -18,7 +18,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:18px;
+    margin-bottom:10px;
 }
 
 .orders-header h1{
@@ -54,13 +54,13 @@
 .orders-cards{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
+    gap:8px;
     margin-bottom:16px;
 }
 
 .order-card{
     background:#fff;
-    height:95px;
+    height:90px;
     padding:12px;
     border-radius:14px;
     display:flex;
