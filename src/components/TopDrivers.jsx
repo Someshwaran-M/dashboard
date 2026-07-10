@@ -60,7 +60,7 @@ const TopDrivers = () => {
     </button>
   </div>
 
-  {/* Scrollable Area */}
+ 
   <div className="drivers-list">
     {drivers.map((driver) => (
       <div className="driver-card" key={driver.id}>

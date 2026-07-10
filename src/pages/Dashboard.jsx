@@ -17,7 +17,6 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Dashboard Body */}
       <div className="left-content">
         <DashboardCards />
         <Statistics />

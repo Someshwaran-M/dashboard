@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Otp.css";
 import bgImage from "../assets/login-bg.jpg";
 import logo from "../assets/onedao-logo.png";
+import Swal from "sweetalert2";
 
 const Otp = () => {
   const navigate = useNavigate();
@@ -43,24 +44,33 @@ const Otp = () => {
   const savedOtp = sessionStorage.getItem("otp");
 
   if (enteredOtp === savedOtp) {
-    // Get registered data
+  
     const registerData = JSON.parse(
       localStorage.getItem("registerData")
     );
 
-    // Save as user
+
     localStorage.setItem(
       "user",
       JSON.stringify(registerData)
     );
 
-    // Clean up
     localStorage.removeItem("registerData");
     sessionStorage.removeItem("otp");
 
-    alert("Registration Successful");
-
+Swal.fire({
+  icon: "success",
+  title: "Registration Successful!",
+  text: "Please login to continue.",
+  confirmButtonColor: "#4f46e5",
+  confirmButtonText: "Go to Login",
+  allowOutsideClick: false,
+  allowEscapeKey: false,
+}).then((result) => {
+  if (result.isConfirmed) {
     navigate("/login");
+  }
+});
   } else {
     setError("Invalid OTP");
   }

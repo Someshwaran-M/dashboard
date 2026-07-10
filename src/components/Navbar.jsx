@@ -27,7 +27,7 @@ const Navbar = () => {
     image: "https://i.pravatar.cc/150?img=12",
   });
 
-  // Handle input changes
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -35,7 +35,6 @@ const Navbar = () => {
     });
   };
 
-  // Handle profile image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -49,7 +48,6 @@ const Navbar = () => {
     }
   };
 
-  // Save button
  const handleSave = () => {
   setShowProfile(false);
 };
@@ -69,7 +67,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Center */}
+      
         <div className="navbar-center">
           <div className="search-box">
             <FaSearch className="search-icon" />
@@ -80,7 +78,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right */}
         <div className="navbar-right">
           <button className="icon-btn">
             <FaEnvelope />
@@ -106,7 +103,6 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Profile Popup */}
 
       {showProfile && (
         <div

@@ -29,7 +29,6 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   setFormData(updatedData);
 
-  // Clear email error while typing
   if (name === "email") {
     setError("");
   }
@@ -37,7 +36,7 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
-  // Password validation
+  
   if (name === "password") {
     if (value && !passwordPattern.test(value)) {
       setPasswordError(
@@ -47,7 +46,6 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
       setPasswordError("");
     }
 
-    // Check confirm password if already entered
     if (
       updatedData.confirmPassword &&
       value !== updatedData.confirmPassword
@@ -60,7 +58,7 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
     }
   }
 
-  // Confirm Password validation
+
   if (name === "confirmPassword") {
     if (value && value !== updatedData.password) {
       setConfirmPasswordError(
@@ -75,12 +73,10 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const handleRegister = async (e) => {
   e.preventDefault();
 
-  // Clear previous errors
   setError("");
   setPasswordError("");
   setConfirmPasswordError("");
 
-  // Empty fields validation
   if (
     !formData.email ||
     !formData.password ||
@@ -90,7 +86,6 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
     return;
   }
 
-  // Email Validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailPattern.test(formData.email)) {
@@ -98,7 +93,7 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
     return;
   }
 
-  // Password Validation
+  
   const passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
@@ -109,7 +104,7 @@ const [confirmPasswordError, setConfirmPasswordError] = useState("");
     return;
   }
 
-  // Confirm Password Validation
+ 
   if (formData.password !== formData.confirmPassword) {
     setConfirmPasswordError("Password and Confirm Password do not match.");
     return;
@@ -180,7 +175,7 @@ return (
 
           <form onSubmit={handleRegister}>
 
-            {/* Email */}
+            
             <div className="form-group">
               <div className="label-row">
                 <label>Email ID</label>
@@ -200,7 +195,7 @@ return (
               />
             </div>
 
-            {/* Password */}
+           
             <div className="form-group">
               <div className="label-row">
                 <label>Password</label>
@@ -234,7 +229,7 @@ return (
               )}
             </div>
 
-            {/* Confirm Password */}
+          
             <div className="form-group">
               <div className="label-row">
                 <label>Confirm Password</label>
@@ -256,12 +251,12 @@ return (
               />
             </div>
 
-            {/* General Error */}
+          
             {error && error !== "Enter a valid email." && (
               <p className="error">{error}</p>
             )}
 
-            {/* Success */}
+      
             {success && (
               <div className="success-message">
                 ✅ OTP sent successfully to your email!
