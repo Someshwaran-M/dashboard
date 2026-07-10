@@ -87,7 +87,6 @@
 
 .login-left{
     flex:1.1;
-    min-height:600px;
     border-radius:22px;
     background-size:cover;
     background-position:center;
@@ -115,23 +114,21 @@
     background:#fff;
     padding:20px;
     overflow-y:auto;
-    min-height:600px;
 }
 
 .login-content{
     width:100%;
     max-width:420px;
     padding:8px 0;
-    margin:0 auto;
 }
 
 /* ---------------------- LOGO ---------------------- */
 
 .login-page .logo{
     display:flex;
-    justify-content:left;
     align-items:center;
-    margin-bottom:15px;
+    gap:12px;
+    margin-bottom:25px;
 }
 
 .login-page .logo-img{
