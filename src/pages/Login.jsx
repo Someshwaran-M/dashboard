@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import bgImage from "../assets/login-bg.jpg";
-import logo from "../assets/onedao-logo.png";
+import logo from "../assets/logo.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
