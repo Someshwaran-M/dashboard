@@ -42,8 +42,8 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <img src={logo} alt="OneDAO Logo" className="logo-img" />
-        <span className="logo-dark">OneDAO</span>
+        <img src={logo} alt="Logo" className="logo-img" />
+        <span className="logo-dark">CRM</span>
       </div>
 
       <ul className="menu">
