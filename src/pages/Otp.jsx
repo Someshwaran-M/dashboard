@@ -81,8 +81,8 @@ navigate("/login");
         <div className="otp-right">
           <div className="otp-content">
             <div className="logo">
-  <img src={logo} alt="OneDAO Logo" className="logo-img" />
-  <span className="logo-dark">OneDAO</span>
+  <img src={logo} alt="Logo" className="logo-img" />
+  <span className="logo-dark">CRM</span>
 </div>
             <h2>Email Verification</h2>
 
