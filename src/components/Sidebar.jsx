@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 
 import "../styles/dashboard/Sidebar.css";
-import logo from "../assets/onedao-logo.png";
+import logo from "../assets/logo.jpg";
 
 const Sidebar = () => {
   const navigate = useNavigate();
