@@ -64,8 +64,8 @@ const Login = () => {
           <div className="login-content">
 
   <div className="logo">
-  <img src={logo} alt="OneDAO Logo" className="logo-img" />
-  <span className="logo-dark">OneDAO</span>
+  <img src={logo} alt="Logo" className="logo-img" />
+  <span className="logo-dark">CRM</span>
 </div>
 
   <h2>Login to Admin Panel</h2>
