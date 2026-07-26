@@ -166,8 +166,8 @@ return (
       <div className="register-right">
         <div className="register-content">
           <div className="logo">
-            <img src={logo} alt="OneDAO Logo" className="logo-img" />
-            <span className="logo-dark">OneDAO</span>
+            <img src={logo} alt="Logo" className="logo-img" />
+            <span className="logo-dark">CRM</span>
           </div>
 
           <h2>Register to Admin Panel</h2>
