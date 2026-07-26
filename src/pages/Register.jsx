@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "../styles/Register.css";
 import bgImage from "../assets/login-bg.jpg";
-import logo from "../assets/onedao-logo.png";
+import logo from "../assets/logo.jpg";
 
 const Register = () => {
   const navigate = useNavigate();
