@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Otp.css";
 import bgImage from "../assets/login-bg.jpg";
-import logo from "../assets/onedao-logo.png";
+import logo from "../assets/logo.jpg";
 
 
 const Otp = () => {
